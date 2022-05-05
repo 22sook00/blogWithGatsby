@@ -5,7 +5,7 @@ Created blog based on
 [ {💎 : react} , { 💠 : Typescript} , {🌪 : tailwind css} ]
 ```
 
-### Install
+### Basic Install
 
 ```js
 
@@ -17,8 +17,12 @@ gatsby new projectName
 
 //! if you install gatsby without cli , use below code
 npx gatsby-cli new projectName
+```
 
-/* step 3_Install typescript (optional) */
+### Typescript Install ( optional )
+
+```js
+/* step 3_Install typescript  */
 yarn add typescript --dev
 yarn add gatsby-plugin-typescript
 
@@ -64,7 +68,6 @@ module.exports = {
 }
 
 /* step 6_Modify gatsby-node.js */
-
 const path = require('path');
 
 // Setup Import Alias
@@ -88,4 +91,37 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
 
 ```
 
-<h6> And now you can open your project typing only "yarn develop" 🙌🏼 </h6>
+### Tailwindcss Install ( optional )
+
+```js
+/* step 7_Install both tailwind and postcss and it makes tailwind.config.js & postcss.config.js automatically */
+npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcss
+
+npx tailwindcss init -p
+
+/* step 8_Apply postcss on gatsby-plugin */
+module.exports = {
+  plugins: [
+    'gatsby-plugin-postcss',
+    // ...
+  ],
+}
+
+/* step 9_Apply routes on tailwind.config.js */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+
+/* step 10_Create global.css and put below code in */
+route : './src/styles/global.css'
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* step 11_Apply global css which has put tailwind codes in on gatsby-browser.js */
+import './src/styles/global.css'
+```
+
+<h6> And now you can open your project typing only "gatsby develop" 🙌🏼 </h6>
