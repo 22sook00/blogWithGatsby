@@ -1,8 +1,6 @@
 # 😈 Sook Blog with Gatsby
 
-#### Created blog based on
-
-###### [ {💎 : react} , { 💠 : Typescript} , {🌪 : tailwind css} ]
+#### <span>Created blog based on [ {💎 : react} , { 💠 : Typescript} , {🌪 : tailwind css} ]</span>
 
 ### Basic Install
 
