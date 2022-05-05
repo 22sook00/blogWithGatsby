@@ -49,7 +49,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
         short_name: `starter`,
@@ -96,7 +95,7 @@ npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcss
 
 npx tailwindcss init -p
 
-/* step 8_Apply postcss on gatsby-plugin */
+/* step 8_Apply postcss on gatsby-config */
 module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
@@ -122,3 +121,33 @@ import './src/styles/global.css'
 ```
 
 <h6> And now you can open your project typing only "gatsby develop" 🙌🏼 </h6>
+
+<hr />
+
+### Directory
+
+#### contents
+
+블로그 포스트 관련 파일들을 저장하기 위한 디렉토리.
+
+#### src
+
+##### - components
+
+##### - pages
+
+페이지의 역할을 하는 컴포넌트를 저장하기 위한 디렉토리.
+기본적으로 브라우저에서 pages 디렉토리에 있는 파일의 이름을 통해 페이지에 접근할 수 있기 때문에 페이지의 역할이 아닌 컴포넌트들은 해당 디렉토리에 저장하지 않는다.
+또한, 페이지의 템플릿 파일에서만 Query 정의가 가능하다. 일반적인 컴포넌트에서는 변수로서 정의가 불가능하고, StaticQuery라는 기능을 통해 정의가능.
+
+##### - hooks
+
+Custom Hooks을 저장하기 위한 디렉토리.
+
+##### - templates
+
+게시글 페이지와 같이 페이지의 역할을 하면서 같은 형식의 여러 콘텐츠를 보여주는 컴포넌트를 저장하기 위한 디렉토리.
+
+Gatsby에서 제공하는 API를 통해 이 디렉토리에 저장된 템플릿 컴포넌트로 여러 페이지를 만든다.
+
+pages 디렉토리와는 다르게 파일명으로 페이지에 접근이 불가하다.
