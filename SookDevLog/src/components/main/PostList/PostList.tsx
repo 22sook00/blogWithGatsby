@@ -8,7 +8,7 @@ interface IPostListProps {
 const PostList: FC<IPostListProps> = ({ edges }) => {
 	console.log("data:", edges);
 	return (
-		<section className="m-auto grid grid-cols-3 gap-4">
+		<section className="bg-white m-auto grid grid-cols-3 gap-4">
 			{edges.map((posting, idx: number) => {
 				return (
 					<article className="border rounded shadow-sm p-4 my-4" key={idx}>
