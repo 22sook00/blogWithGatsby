@@ -6,6 +6,8 @@ import LayoutDefault from "@src/components/common/Layout/LayoutDefault";
 import Introduction from "@src/components/main/Introduction/Introduction";
 import CategoryList from "@src/components/main/CategoryList/CategoryList";
 import PostList from "@src/components/main/PostList/PostList";
+import Header from "@src/components/common/Header";
+import Footer from "@src/components/common/Footer";
 
 const IndexPage = ({
 	data: {
@@ -13,12 +15,19 @@ const IndexPage = ({
 	},
 }) => {
 	return (
-		<LayoutDefault>
-			<Link to="/info/">To Info</Link>
-			<Introduction />
-			{/* <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} /> */}
-			<PostList edges={edges} />
-		</LayoutDefault>
+		<main>
+			<Header />
+			<LayoutDefault>
+				<Link to="/info/">To Info</Link>
+				<Introduction />
+				{/* <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} /> */}
+				<PostList edges={edges} />
+				<PostList edges={edges} />
+				<PostList edges={edges} />
+				<PostList edges={edges} />
+			</LayoutDefault>
+			<Footer />
+		</main>
 	);
 };
 
