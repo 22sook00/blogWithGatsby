@@ -22,9 +22,6 @@ const IndexPage = ({
 				<Introduction />
 				{/* <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} /> */}
 				<PostList edges={edges} />
-				<PostList edges={edges} />
-				<PostList edges={edges} />
-				<PostList edges={edges} />
 			</LayoutDefault>
 			<Footer />
 		</main>
@@ -41,6 +38,7 @@ export const getPostList = graphql`
 			edges {
 				node {
 					id
+					html
 					frontmatter {
 						title
 						summary
