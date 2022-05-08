@@ -23,7 +23,7 @@ const PostList: FC<IPostListProps> = ({ edges }) => {
 									.gatsbyImageData
 							}
 							alt="Gatsby Image"
-							className="w-[30%] rounded-md"
+							className="w-[30%] h-[200px] object-cover rounded-md"
 						/>
 						<div className="w-full">
 							<div className="h-fit flex justify-between items-center">
