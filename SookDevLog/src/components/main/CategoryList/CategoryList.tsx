@@ -25,7 +25,6 @@ const CategoryList: FC<ICategoryListProps> = ({
 	return (
 		<div>
 			{Object.entries(categoryList).map(([name, count]) => {
-				console.log("mn", name, "select:", selectedCategory);
 				return (
 					<Link
 						to={`/?category=${name}`}
