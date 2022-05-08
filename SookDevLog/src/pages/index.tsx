@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useMemo } from "react";
 
 import { graphql, Link } from "gatsby";
 import ProfileImage from "@src/components/main/ProfileImage/ProfileImage";
@@ -17,8 +17,38 @@ const IndexPage = ({
 		allMarkdownRemark: { edges },
 	},
 }) => {
-	console.log("search?", search);
 	const image = getImage(edges[0].node.frontmatter.thumbnail);
+	const parsed: ParsedQuery<string> = queryString.parse(search);
+	console.log("parsed", parsed, "search?", search);
+	const selectedCategory: string =
+		typeof parsed.category !== "string" || !parsed.category
+			? "All"
+			: parsed.category;
+
+	const categoryList = useMemo(
+		() =>
+			edges.reduce(
+				(
+					list: any,
+					{
+						node: {
+							frontmatter: { categories },
+						},
+					}: any,
+				) => {
+					categories.forEach((category) => {
+						if (list[category] === undefined) list[category] = 1;
+						else list[category]++;
+					});
+
+					list["All"]++;
+
+					return list;
+				},
+				{ All: 0 },
+			),
+		[],
+	);
 
 	return (
 		<main>
@@ -26,11 +56,11 @@ const IndexPage = ({
 			<LayoutDefault>
 				<Link to="/info/">To Info</Link>
 				<Introduction profileImage={image} />
-				{/* <CategoryList
-        selectedCategory={selectedCategory}
-        categoryList={CATEGORY_LIST}
-      /> */}
-				<PostList edges={edges} />
+				<CategoryList
+					selectedCategory={selectedCategory}
+					categoryList={categoryList}
+				/>
+				<PostList selectedCategory={selectedCategory} posts={edges} />
 			</LayoutDefault>
 			<Footer />
 		</main>
