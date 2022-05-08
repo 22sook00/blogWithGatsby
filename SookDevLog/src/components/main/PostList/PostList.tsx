@@ -14,7 +14,7 @@ const PostList: FC<IPostListProps> = ({ edges }) => {
 				console.log(posting.node.html);
 				return (
 					<article
-						className="bg-white cursor-pointer flex gap-4 border rounded shadow-sm p-4 my-4"
+						className="bg-white cursor-pointer flex gap-4 border rounded shadow-sm p-4 my-4 transition hover:backdrop-opacity-10 "
 						key={idx}
 					>
 						<GatsbyImage
