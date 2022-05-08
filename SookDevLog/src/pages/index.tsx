@@ -9,28 +9,23 @@ import PostList from "@src/components/main/PostList/PostList";
 import Header from "@src/components/common/Header";
 import Footer from "@src/components/common/Footer";
 import queryString, { ParsedQuery } from "query-string";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const IndexPage = ({
 	location: { search },
 	data: {
 		allMarkdownRemark: { edges },
-		file: {
-			childImageSharp: { gatsbyImageData },
-		},
 	},
 }) => {
-	const parsed: ParsedQuery<string> = queryString.parse(search);
-	console.log("parsed?", parsed);
-	const selectedCategory: string =
-		typeof parsed.category !== "string" || !parsed.category
-			? "All"
-			: parsed.category;
+	console.log("search?", search);
+	const image = getImage(edges[0].node.frontmatter.thumbnail);
+
 	return (
 		<main>
 			<Header />
 			<LayoutDefault>
 				<Link to="/info/">To Info</Link>
-				<Introduction />
+				<Introduction profileImage={image} />
 				{/* <CategoryList
         selectedCategory={selectedCategory}
         categoryList={CATEGORY_LIST}
@@ -52,7 +47,6 @@ export const getPostList = graphql`
 			edges {
 				node {
 					id
-					html
 					frontmatter {
 						title
 						summary
@@ -60,7 +54,14 @@ export const getPostList = graphql`
 						categories
 						thumbnail {
 							childImageSharp {
-								gatsbyImageData(width: 768, height: 400)
+								gatsbyImageData(
+									quality: 100
+									placeholder: BLURRED
+									formats: [AUTO, WEBP, AVIF]
+									transformOptions: { fit: INSIDE, cropFocus: ATTENTION }
+									layout: CONSTRAINED
+									width: 368
+								)
 							}
 						}
 					}
