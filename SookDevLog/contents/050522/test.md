@@ -1,7 +1,7 @@
 ---
 date: "2022-05-05"
 title: "어린이날에 코딩하기"
-categories: ["Web", "GraphQl", "React", "Typescript", "Tailwindcss"]
+categories: ["Gatsby", "GraphQl", "Daily"]
 summary: "어린이날에 노는 어른이어딨어! 마! 코딩해! (놀고싶어)"
 thumbnail: "./test.png"
 ---

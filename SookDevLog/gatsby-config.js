@@ -5,7 +5,7 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-image',
     'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-plugin-typescript',

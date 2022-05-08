@@ -1,17 +1,34 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 interface IPostListProps {
-	edges: any;
+	selectedCategory: string;
+	posts: any;
 }
 
-const PostList: FC<IPostListProps> = ({ edges }) => {
-	console.log("data:", edges);
+const PostList: FC<IPostListProps> = ({ selectedCategory, posts }) => {
+	console.log("data:", posts);
+
+	const postListData = useMemo(
+		() =>
+			posts.filter(
+				({
+					node: {
+						frontmatter: { categories },
+					},
+				}: any) =>
+					selectedCategory !== "All"
+						? categories.includes(selectedCategory)
+						: true,
+			),
+		[selectedCategory],
+	);
+
 	return (
 		// <div className="relative max-w-7xl mx-auto px-4 focus:outline-none sm:px-3 md:px-5">
 		<section className="relative rounded-lg m-auto ">
-			{edges.map((posting, idx: number) => {
-				console.log(posting.node.html);
+			{postListData.map((posting, idx: number) => {
+				// console.log(posting.node.html);
 				return (
 					<article
 						className="bg-white cursor-pointer flex gap-4 border rounded shadow-sm p-4 my-4 transition hover:backdrop-opacity-10 "
@@ -48,7 +65,7 @@ const PostList: FC<IPostListProps> = ({ edges }) => {
 					</article>
 				);
 			})}
-			{edges.map((posting, idx: number) => {
+			{postListData.map((posting, idx: number) => {
 				console.log(posting.node.html);
 				return (
 					<article
