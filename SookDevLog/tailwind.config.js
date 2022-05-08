@@ -7,16 +7,15 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			animation: {
+        'spin-slow': 'spin 5s ease infinite',
+      },
 			colors: {
-				"primary-default": "#ffd951",
-				"secondary-dark": "#FFB801",
-				"primary-light": "#FFF1C3",
-				"primary-dark": "#FFEEB4",
-				"primary-tint": "#FFFDF4",
+		
 				"primary-through": "rgba(255, 217, 81, 0.3)",
-				"text-primary": "#515151",
+				"text-primary": "#0284c7",
 				"text-dark": "#333333",
-				"text-light": "#8b8b8b",
+				"text-light": "#9ca3af",
 				"text-tint": "#d1d1d1",
 				"text-line": "#dddddd",
 				"text-tag-blue": "#2586F9",

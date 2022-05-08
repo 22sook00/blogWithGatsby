@@ -60,8 +60,9 @@ const IndexPage = ({
 		<main>
 			<Header />
 			<LayoutDefault>
-				<Link to="/info/">To Info</Link>
-				<Introduction profileImage={image} />
+				{/* <Link to="/info/">To Info</Link> */}
+				<Introduction />
+
 				<CategoryList
 					selectedCategory={selectedCategory}
 					categoryList={categoryList}
@@ -88,6 +89,7 @@ export const getPostList = graphql`
 			edges {
 				node {
 					id
+					html
 					frontmatter {
 						title
 						summary

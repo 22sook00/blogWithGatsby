@@ -5,7 +5,7 @@ export type useInfiniteScrollType = {
 	postList: any[];
 };
 
-const NUMBER_OF_ITEMS_PER_PAGE = 3;
+const NUMBER_OF_ITEMS_PER_PAGE = 5;
 
 const useInfiniteScroll = function (
 	selectedCategory: string,

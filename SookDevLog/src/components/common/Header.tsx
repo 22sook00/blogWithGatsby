@@ -6,13 +6,16 @@ const Header = () => {
 			<div className="max-w-8xl mx-auto">
 				<div className="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
 					<div className="relative flex items-center">
-						<a className="cursor-pointer mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto transition text-sky-600 hover:dark:text-sky-400">
-							SookBlog
+						<a className="cursor-pointer mr-6 flex-none w-[2.0625rem] overflow-hidden md:w-auto transition text-sky-600 hover:dark:text-sky-400">
+							SookDev
 						</a>
 						<input
 							placeholder="🔎 Search icon 올 부분"
 							onChange={(e) => e.target.value}
-							className="transition text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3  items-center hover:bg-sky-400/20"
+							className="
+							transition text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-200/10 rounded-full py-1 px-3  items-center 
+							inline-flex justify-center border border-transparent bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2
+							"
 						/>
 						<div className="relative hidden lg:flex items-center ml-auto">
 							<nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">

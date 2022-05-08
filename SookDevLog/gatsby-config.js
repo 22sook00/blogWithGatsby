@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
+        name: `static`,
         path: `${__dirname}/static`,
       },
     },
@@ -77,6 +77,19 @@ module.exports = {
             },
           },
         ],
+        // defaults: {
+        //   formats: [`auto`, `webp`],
+        //   placeholder: `dominantColor`,
+        //   quality: 50,
+        //   breakpoints: [750, 1080, 1366, 1920],
+        //   backgroundColor: `transparent`,
+        //   tracedSVGOptions: {},
+        //   blurredOptions: {},
+        //   jpgOptions: {},
+        //   pngOptions: {},
+        //   webpOptions: {},
+        //   avifOptions: {},
+        // },
       },
     },
   ],
