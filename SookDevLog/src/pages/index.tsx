@@ -5,11 +5,12 @@ import ProfileImage from "@src/components/main/ProfileImage/ProfileImage";
 import LayoutDefault from "@src/components/common/Layout/LayoutDefault";
 import Introduction from "@src/components/main/Introduction/Introduction";
 import CategoryList from "@src/components/main/CategoryList/CategoryList";
-import PostList from "@src/components/main/PostList/PostList";
 import Header from "@src/components/common/Header";
 import Footer from "@src/components/common/Footer";
 import queryString, { ParsedQuery } from "query-string";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import PostList from "@src/components/main/PostList/PostList";
+import useInfiniteScroll from "@src/hooks/useInfiniteScroll";
 
 const IndexPage = ({
 	location: { search },
@@ -19,7 +20,6 @@ const IndexPage = ({
 }) => {
 	const image = getImage(edges[0].node.frontmatter.thumbnail);
 	const parsed: ParsedQuery<string> = queryString.parse(search);
-	console.log("parsed", parsed, "search?", search);
 	const selectedCategory: string =
 		typeof parsed.category !== "string" || !parsed.category
 			? "All"
@@ -50,6 +50,12 @@ const IndexPage = ({
 		[],
 	);
 
+	const { containerRef, postList } = useInfiniteScroll(selectedCategory, edges);
+
+	const filteryBycategory = Object.entries(categoryList).filter(
+		(el) => el[0] === selectedCategory,
+	);
+
 	return (
 		<main>
 			<Header />
@@ -60,8 +66,13 @@ const IndexPage = ({
 					selectedCategory={selectedCategory}
 					categoryList={categoryList}
 				/>
-				<PostList selectedCategory={selectedCategory} posts={edges} />
+				<PostList
+					postList={postList}
+					filteryBycategory={filteryBycategory[0]}
+					containerRef={containerRef}
+				/>
 			</LayoutDefault>
+
 			<Footer />
 		</main>
 	);
