@@ -2,7 +2,6 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 
 const PostItem = (frontmatter, idx) => {
-	console.log("frontmatter", frontmatter);
 	return (
 		<article
 			className="bg-white cursor-pointer flex gap-4 border rounded shadow-sm p-4 my-4 transition hover:backdrop-opacity-10 "

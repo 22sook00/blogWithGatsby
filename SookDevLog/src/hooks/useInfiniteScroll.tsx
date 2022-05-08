@@ -40,11 +40,11 @@ const useInfiniteScroll = function (
 			//너무 바로 로딩되는 느낌이 있어 추가함.
 			setTimeout(() => {
 				setCount((value) => value + 1);
-			}, 2000);
+			}, 1500);
+
 			observer.disconnect();
 		},
 	);
-	// console.log("count?", count);
 	useEffect(() => setCount(1), [selectedCategory]);
 
 	useEffect(() => {

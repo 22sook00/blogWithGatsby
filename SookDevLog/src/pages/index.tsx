@@ -52,18 +52,27 @@ const IndexPage = ({
 
 	const { containerRef, postList } = useInfiniteScroll(selectedCategory, edges);
 
+	const filteryBycategory = Object.entries(categoryList).filter(
+		(el) => el[0] === selectedCategory,
+	);
+
 	return (
 		<main>
 			<Header />
-			<LayoutDefault containerRef={containerRef}>
-				{/* <Link to="/info/">To Info</Link> */}
-				{/* <Introduction profileImage={image} /> */}
+			<LayoutDefault>
+				<Link to="/info/">To Info</Link>
+				<Introduction profileImage={image} />
 				<CategoryList
 					selectedCategory={selectedCategory}
 					categoryList={categoryList}
 				/>
-				<PostList postList={postList} />
+				<PostList
+					postList={postList}
+					filteryBycategory={filteryBycategory[0]}
+					containerRef={containerRef}
+				/>
 			</LayoutDefault>
+
 			<Footer />
 		</main>
 	);
