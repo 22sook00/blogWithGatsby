@@ -30,8 +30,10 @@ const CategoryList: FC<ICategoryListProps> = ({
 						to={`/?category=${name}`}
 						key={name}
 						className={`${
-							name === selectedCategory ? "text-text-primary" : "text-gray-400"
-						} flex border px-4 py-2 rounded-lg`}
+							name === selectedCategory
+								? " font-medium transition text-sky-600  border border-transparent bg-blue-100 ring-sky-400 p-3 ring-opacity-60 ring-offset-2  focus:outline-none focus:ring-2"
+								: "text-gray-400"
+						} flex  px-4 py-2 rounded-lg border`}
 					>
 						{name} ({count})
 					</Link>
