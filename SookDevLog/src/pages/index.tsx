@@ -72,9 +72,9 @@ const IndexPage = ({
 					filteryBycategory={filteryBycategory[0]}
 					containerRef={containerRef}
 				/>
-			</LayoutDefault>
 
-			<Footer />
+				<Footer />
+			</LayoutDefault>
 		</main>
 	);
 };
