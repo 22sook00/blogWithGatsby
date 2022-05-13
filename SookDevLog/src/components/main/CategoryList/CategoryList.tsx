@@ -23,20 +23,19 @@ const CategoryList: FC<ICategoryListProps> = ({
 	categoryList,
 }) => {
 	return (
-		<div>
+		<div className="flex gap-4 mt-20 mb-8 flex-wrap">
 			{Object.entries(categoryList).map(([name, count]) => {
-				console.log("mn", name, "select:", selectedCategory);
 				return (
 					<Link
 						to={`/?category=${name}`}
 						key={name}
 						className={`${
 							name === selectedCategory
-								? "font-bold text-text-tag-blue"
-								: "text-purple-500"
-						} flex`}
+								? " font-medium transition text-sky-600  border border-transparent bg-blue-100 ring-sky-400 p-3 ring-opacity-60 ring-offset-2  focus:outline-none focus:ring-2"
+								: "text-gray-400"
+						} flex  px-4 py-2 rounded-lg border`}
 					>
-						#{name}({count})
+						{name} ({count})
 					</Link>
 				);
 			})}

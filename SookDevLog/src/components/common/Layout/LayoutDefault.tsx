@@ -5,7 +5,12 @@ interface ILayoutProps {
 }
 
 const LayoutDefault: FC<ILayoutProps> = ({ children }) => {
-	return <div className="w-full m-auto p-6">{children}</div>;
+	return (
+		// <div className="w-full h-[calc(100%-60px)] bg-gradient-to-b from-blue-100 via-pink-100 to-white m-auto px-8  py-32">
+		<div className="w-full h-[calc(100%-60px)] pt-32 m-auto px-8 lg:max-w-[1240px]">
+			{children}
+		</div>
+	);
 };
 
 export default LayoutDefault;
