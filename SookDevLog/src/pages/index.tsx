@@ -89,6 +89,9 @@ export const getPostList = graphql`
 			edges {
 				node {
 					id
+					fields {
+						slug
+					}
 					html
 					frontmatter {
 						title

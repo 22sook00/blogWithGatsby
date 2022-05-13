@@ -1,10 +1,12 @@
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import "@src/components/main/PostItem/postItem.css";
+import { Link } from "gatsby";
 
 const PostItem = (node) => {
 	return (
-		<article
+		<Link
+			to={node.fields.slug}
 			className="bg-white hover:bg-slate-400/10 dark:highlight-white/5 cursor-pointer flex gap-4 border rounded-lg shadow-sm p-6 my-4 transition hover:backdrop-opacity-10 "
 			key={node.idx}
 		>
@@ -53,7 +55,7 @@ const PostItem = (node) => {
 				alt="Gatsby Image"
 				className="w-[20%] h-[160px] object-cover rounded-md"
 			/>
-		</article>
+		</Link>
 	);
 };
 

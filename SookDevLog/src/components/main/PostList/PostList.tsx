@@ -6,7 +6,6 @@ import PostItem from "../PostItem/PostItem";
 interface IProps {
 	postList: any;
 	filteryBycategory: any;
-
 	containerRef?: any;
 }
 
@@ -18,12 +17,7 @@ const PostList: FC<IProps> = ({
 	return (
 		<div ref={containerRef} className="relative ">
 			{postList.map(({ node }: any, idx: number) => (
-				<PostItem
-					{...node}
-					link="https://www.google.co.kr/"
-					key={node.id}
-					idx={idx}
-				/>
+				<PostItem {...node} link={node.fields.slug} key={node.id} idx={idx} />
 			))}
 			<div
 				className={`${
