@@ -12,12 +12,13 @@ const PostDetail = ({
 	const data = edges[0]?.node.frontmatter;
 	const contents = edges[0]?.node.html;
 
-	console.log("contents", data, contents);
 	return (
 		<>
 			<Header />
 			<LayoutDefault>
-				<p>asdfasdf</p>
+				<p>markdown 나타내기 </p>
+				<div dangerouslySetInnerHTML={{ __html: contents }} />
+
 				<Footer />
 			</LayoutDefault>
 		</>
