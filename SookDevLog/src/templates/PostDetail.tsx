@@ -1,6 +1,7 @@
 import Footer from "@src/components/common/Footer";
 import Header from "@src/components/common/Header";
 import LayoutDefault from "@src/components/common/Layout/LayoutDefault";
+import "./PostDetailCms.css";
 import { graphql } from "gatsby";
 import React from "react";
 
@@ -16,8 +17,10 @@ const PostDetail = ({
 		<>
 			<Header />
 			<LayoutDefault>
-				<p>markdown 나타내기 </p>
-				<div dangerouslySetInnerHTML={{ __html: contents }} />
+				<div
+					className="content_layout"
+					dangerouslySetInnerHTML={{ __html: contents }}
+				/>
 
 				<Footer />
 			</LayoutDefault>
