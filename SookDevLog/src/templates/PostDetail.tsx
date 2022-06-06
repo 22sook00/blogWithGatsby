@@ -4,6 +4,7 @@ import LayoutDefault from "@src/components/common/Layout/LayoutDefault";
 import "./PostDetailCms.css";
 import { graphql } from "gatsby";
 import React from "react";
+import CommentWidget from "@src/components/main/PostItem/CommentWidget";
 
 const PostDetail = ({
 	data: {
@@ -24,6 +25,7 @@ const PostDetail = ({
 
 				<Footer />
 			</LayoutDefault>
+			<CommentWidget />
 		</>
 	);
 };

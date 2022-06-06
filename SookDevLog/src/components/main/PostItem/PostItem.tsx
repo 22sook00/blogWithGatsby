@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 const PostItem = (node) => {
 	return (
 		<Link
-			to={node.fields.slug}
+			to={node.fields?.slug}
 			className="bg-white hover:bg-slate-400/10 dark:highlight-white/5 cursor-pointer flex gap-4 border rounded-lg shadow-sm p-6 my-4 transition hover:backdrop-opacity-10 "
 			key={node.idx}
 		>
@@ -16,8 +16,8 @@ const PostItem = (node) => {
 
 			<div className="w-full">
 				<div className="h-fit flex justify-between items-center">
-					<h1 className=" text-xl  ">{node.frontmatter.title}</h1>
-					<p className="text-text-light text-sm">{node.frontmatter.date}</p>
+					<h1 className=" text-xl  ">{node.frontmatter?.title}</h1>
+					<p className="text-text-light text-sm">{node.frontmatter?.date}</p>
 				</div>
 				<div className="h-[96px]">
 					<p className="text-sm my-2 text-text-light">
@@ -31,7 +31,7 @@ const PostItem = (node) => {
 					/>
 				</div>
 				<ul className="flex gap-2 mt-2">
-					{node.frontmatter.categories.map((category) => (
+					{node.frontmatter?.categories?.map((category) => (
 						<li
 							className={`border ${
 								category === "Daily"
@@ -51,7 +51,7 @@ const PostItem = (node) => {
 				</ul>
 			</div>
 			<GatsbyImage
-				image={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+				image={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
 				alt="Gatsby Image"
 				className="w-[20%] h-[160px] object-cover rounded-md"
 			/>
