@@ -14,7 +14,6 @@ h3 : 강조문구 / 에러문구
 	min-width: 768px;
 	max-width: 1120px;
 	margin: 0 auto;
-	padding: 100px 0;
 	word-break: break-all;
 
 	line-height: 1.8;
@@ -147,8 +146,4 @@ h3 {
 
 .link_div {
 	margin: 10px 0;
-<<<<<<< HEAD
 } */
-=======
-}
->>>>>>> c3fe8322b8efa7624eb8e4c02f6d53ee6f1ff90e

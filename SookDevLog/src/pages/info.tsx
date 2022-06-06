@@ -22,8 +22,7 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
 	},
 }) {
 	return (
-		<LayoutDefault>
-			asdf
+		<LayoutDefault title={title} description={description}>
 			<h1 className="text-lg shadow-lg">테일윈드되나?</h1>
 			<p className="flex gap-3  text-blue-400 ">
 				{" "}

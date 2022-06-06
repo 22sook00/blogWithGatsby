@@ -8,7 +8,8 @@ const NotFoundPage = () => {
 			<p> 다른 콘텐츠를 보러 가보시겠어요?</p>
 			<a
 				href="/"
-				className="mt-6 text-sm rounded-md shadow-md border w-fit h-fit px-4 py-2 transition hover:bg-hover-gray-bg"
+				// className="mt-6 text-sm rounded-md shadow-md border w-fit h-fit px-4 py-2 transition hover:bg-hover-gray-bg"
+				className="btn-primary"
 			>
 				메인으로
 			</a>

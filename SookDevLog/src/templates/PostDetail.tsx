@@ -10,22 +10,42 @@ const PostDetail = ({
 	data: {
 		allMarkdownRemark: { edges },
 	},
+	location: { href },
 }) => {
 	const data = edges[0]?.node.frontmatter;
 	const contents = edges[0]?.node.html;
+	const {
+		node: {
+			html,
+			frontmatter: {
+				title,
+				summary,
+				date,
+				categories,
+				// thumbnail: {
+				// 	childImageSharp: { gatsbyImageData },
+				// 	publicURL,
+				// },
+			},
+		},
+	} = edges[0];
 
 	return (
 		<>
-			<Header />
-			<LayoutDefault>
+			<LayoutDefault
+				title={title}
+				description={summary}
+				url={href}
+				// image={publicURL}
+			>
 				<div
 					className="content_layout"
 					dangerouslySetInnerHTML={{ __html: contents }}
 				/>
 
+				<CommentWidget />
 				<Footer />
 			</LayoutDefault>
-			<CommentWidget />
 		</>
 	);
 };
@@ -47,6 +67,7 @@ export const queryMarkdownDataBySlug = graphql`
 							childImageSharp {
 								gatsbyImageData
 							}
+							publicURL
 						}
 					}
 				}

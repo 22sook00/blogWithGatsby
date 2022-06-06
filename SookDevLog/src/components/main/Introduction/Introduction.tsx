@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
+import { Helmet } from "react-helmet";
 import ProfileImage, { IProfileImgProps } from "../ProfileImage/ProfileImage";
 
 const Introduction = () => {
@@ -26,11 +27,9 @@ const Introduction = () => {
 			</div>
 			<div>
 				<h1 className=" text-[44px]">Hello,</h1>
-				<h2 className="text-xl mb-2">
-					Welcome to the development study & daily blog 🙌🏼
-				</h2>
+				<h2 className="text-xl mb-2">Welcome to the Bella's devlog 🙌🏼</h2>
 				<h3>
-					I'm Junior Frontend Developer, Sookyoung Lee
+					I'm Junior Frontend Developer, Bella || Sookyoung Lee
 					<br />
 					and currently working at "
 					<Link to="https://stay.enkor.kr/">
@@ -44,8 +43,20 @@ const Introduction = () => {
 					a foreigner housing platform.
 					<br />I keep studying for better web usability and data optimization.{" "}
 					<br />
-					The main stack is React / TypeScript / Next.js
-					<br /> I'm interested in app development,so I am studying Flutter.
+					The main stack is
+					<span className="text-text-primary border-text-tag-blue tag-layout">
+						React
+					</span>
+					<span className="text-text-primary border-text-tag-blue tag-layout">
+						TypeScript
+					</span>
+					<span className="text-text-primary border-text-tag-blue tag-layout">
+						Next.js
+					</span>
+					<br /> I'm interested in app development,so I am studying
+					<span className="text-text-primary border-text-primary tag-layout">
+						Flutter.
+					</span>
 				</h3>
 			</div>
 		</header>
