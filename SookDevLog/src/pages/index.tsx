@@ -14,9 +14,10 @@ import useInfiniteScroll from "@src/hooks/useInfiniteScroll";
 import { Helmet } from "react-helmet";
 
 interface TemplateProps {
-	location: {
-		href: string;
-	};
+	// location: {
+	// 	href: string;
+	// };
+	location: { search };
 	data: {
 		site: {
 			siteMetadata: {
@@ -38,7 +39,9 @@ interface TemplateProps {
 }
 
 const IndexPage: FC<TemplateProps> = ({
-	location: { href },
+	// location: { href },
+
+	location: { search },
 	data: {
 		allMarkdownRemark: { edges },
 		site: {
@@ -51,7 +54,9 @@ const IndexPage: FC<TemplateProps> = ({
 	},
 }) => {
 	const image = getImage(edges[0].node.frontmatter.thumbnail);
-	const parsed: ParsedQuery<string> = queryString.parse(href);
+	// const parsed: ParsedQuery<string> = queryString.parse(href);
+
+	const parsed: ParsedQuery<string> = queryString.parse(search);
 	const selectedCategory: string =
 		typeof parsed.category !== "string" || !parsed.category
 			? "All"
@@ -98,7 +103,6 @@ const IndexPage: FC<TemplateProps> = ({
 			>
 				{/* <Link to="/info/">To Info</Link> */}
 				<Introduction />
-
 				<CategoryList
 					selectedCategory={selectedCategory}
 					categoryList={categoryList}
@@ -108,7 +112,6 @@ const IndexPage: FC<TemplateProps> = ({
 					filteryBycategory={filteryBycategory[0]}
 					containerRef={containerRef}
 				/>
-
 				<Footer />
 			</LayoutDefault>
 		</main>
