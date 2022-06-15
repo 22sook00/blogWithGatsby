@@ -39,7 +39,7 @@ const CommentWidget: FunctionComponent = function () {
 	}, []);
 
 	return (
-		<div ref={element} className="w-full h-fit m-auto px-5 lg:px-0 mb-20" />
+		<div ref={element} className="w-full h-fit m-auto px-5 lg:px-0 my-20" />
 	);
 };
 

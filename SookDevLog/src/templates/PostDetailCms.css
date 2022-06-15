@@ -1,20 +1,9 @@
-/*
-!포스팅 규칙
-h1 : 제목
-h2 : 소제목
-h3 : 강조문구 / 에러문구
-*/
-
 .content_layout {
-	/* font-size: 18px; */
-	/* line-height: 30px; */
-
 	display: flex;
 	flex-direction: column;
 	min-width: 768px;
 	max-width: 1120px;
 	margin: 0 auto;
-	padding: 100px 0;
 	word-break: break-all;
 
 	line-height: 1.8;
@@ -56,7 +45,6 @@ h3 : 강조문구 / 에러문구
 		font-size: 20px;
 	}
 
-	// Adjust Quotation Element Style
 	blockquote {
 		margin: 30px 0;
 		padding: 5px 15px;
@@ -64,26 +52,22 @@ h3 : 강조문구 / 에러문구
 		font-weight: 800;
 	}
 
-	// Adjust List Element Style
 	ol,
 	ul {
 		margin-left: 20px;
 		padding: 30px 0;
 	}
 
-	// Adjust Horizontal Rule style
 	hr {
 		border: 1px solid #000000;
 		margin: 100px 0;
 	}
 
-	// Adjust Link Element Style
 	a {
 		color: #4263eb;
 		text-decoration: underline;
 	}
 
-	// Adjust Code Style
 	pre[class*="language-"] {
 		margin: 30px 0;
 		padding: 15px;
@@ -100,7 +84,6 @@ h3 : 강조문구 / 에러문구
 		tab-size: 2;
 	}
 
-	// Markdown Responsive Design
 	@media (max-width: 768px) {
 		width: 100%;
 		padding: 80px 20px;
@@ -128,23 +111,3 @@ h3 : 강조문구 / 에러문구
 		}
 	}
 }
-/* h1 {
-	font-size: 28px;
-	line-height: 38px;
-	font-weight: bold;
-	margin: 30px 0;
-}
-
-h2 {
-	font-size: 24px;
-	margin: 20px 0;
-}
-
-h3 {
-	color: #ff5050;
-	margin: 10px;
-}
-
-.link_div {
-	margin: 10px 0;
-} */

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from "react";
+import React, { FC, FunctionComponent, useMemo } from "react";
 
 import { graphql, Link } from "gatsby";
 import ProfileImage from "@src/components/main/ProfileImage/ProfileImage";
@@ -11,15 +11,47 @@ import queryString, { ParsedQuery } from "query-string";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import PostList from "@src/components/main/PostList/PostList";
 import useInfiniteScroll from "@src/hooks/useInfiniteScroll";
+import { Helmet } from "react-helmet";
 
-const IndexPage = ({
-	location: { search },
+interface TemplateProps {
+	location: {
+		href: string;
+	};
+	data: {
+		site: {
+			siteMetadata: {
+				title: string;
+				description: string;
+				siteUrl: string;
+			};
+		};
+		allMarkdownRemark: {
+			edges: any[];
+		};
+		file: {
+			childImageSharp: {
+				gatsbyImageData: any;
+			};
+			publicURL: string;
+		};
+	};
+}
+
+const IndexPage: FC<TemplateProps> = ({
+	location: { href },
 	data: {
 		allMarkdownRemark: { edges },
+		site: {
+			siteMetadata: { title, description, siteUrl },
+		},
+		// file: {
+		// 	childImageSharp: { gatsbyImageData },
+		// 	publicURL,
+		// },
 	},
 }) => {
 	const image = getImage(edges[0].node.frontmatter.thumbnail);
-	const parsed: ParsedQuery<string> = queryString.parse(search);
+	const parsed: ParsedQuery<string> = queryString.parse(href);
 	const selectedCategory: string =
 		typeof parsed.category !== "string" || !parsed.category
 			? "All"
@@ -58,8 +90,12 @@ const IndexPage = ({
 
 	return (
 		<main>
-			<Header />
-			<LayoutDefault>
+			<LayoutDefault
+				title={title}
+				description={description}
+				url={siteUrl}
+				// image={publicURL}
+			>
 				{/* <Link to="/info/">To Info</Link> */}
 				<Introduction />
 
@@ -83,6 +119,13 @@ export default IndexPage;
 
 export const getPostList = graphql`
 	query getPostList {
+		site {
+			siteMetadata {
+				title
+				description
+				siteUrl
+			}
+		}
 		allMarkdownRemark(
 			sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
 		) {
@@ -92,7 +135,6 @@ export const getPostList = graphql`
 					fields {
 						slug
 					}
-					html
 					frontmatter {
 						title
 						summary
@@ -100,19 +142,53 @@ export const getPostList = graphql`
 						categories
 						thumbnail {
 							childImageSharp {
-								gatsbyImageData(
-									quality: 100
-									placeholder: BLURRED
-									formats: [AUTO, WEBP, AVIF]
-									transformOptions: { fit: INSIDE, cropFocus: ATTENTION }
-									layout: CONSTRAINED
-									width: 368
-								)
+								gatsbyImageData(width: 768, height: 400)
 							}
 						}
 					}
 				}
 			}
 		}
+		file(name: { eq: "profile-image" }) {
+			childImageSharp {
+				gatsbyImageData(width: 120, height: 120)
+			}
+			publicURL
+		}
 	}
 `;
+// export const getPostList = graphql`
+// 	query getPostList {
+// 		allMarkdownRemark(
+// 			sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+// 		) {
+// 			edges {
+// 				node {
+// 					id
+// 					fields {
+// 						slug
+// 					}
+// 					html
+// 					frontmatter {
+// 						title
+// 						summary
+// 						date(formatString: "YYYY.MM.DD.")
+// 						categories
+// 						thumbnail {
+// 							childImageSharp {
+// 								gatsbyImageData(
+// 									quality: 100
+// 									placeholder: BLURRED
+// 									formats: [AUTO, WEBP, AVIF]
+// 									transformOptions: { fit: INSIDE, cropFocus: ATTENTION }
+// 									layout: CONSTRAINED
+// 									width: 368
+// 								)
+// 							}
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// `;

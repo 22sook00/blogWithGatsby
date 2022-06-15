@@ -17,6 +17,8 @@ const useInfiniteScroll = function (
 		useRef<HTMLDivElement>(null);
 	//몇개씩 끊어서 보여줄건지 지정하기 : 선택된 tag 에 따라 숫자를 나눠줘야 하기 떄문에 다음과같은 식 작성.
 	const [count, setCount] = useState<number>(1);
+	const observer: MutableRefObject<IntersectionObserver | null> =
+		useRef<IntersectionObserver>(null);
 
 	const postListByCategory = useMemo<any[]>(
 		() =>
@@ -32,30 +34,29 @@ const useInfiniteScroll = function (
 			),
 		[selectedCategory],
 	);
-	//지정한 숫자 노드의갯수만큼 도달했을때 다음 데이터 불러올, observer 설정
-	const observer: IntersectionObserver = new IntersectionObserver(
-		(entries, observer) => {
-			if (!entries[0].isIntersecting) return;
 
-			//너무 바로 로딩되는 느낌이 있어 추가함.
+	useEffect(() => {
+		observer.current = new IntersectionObserver((entries, observer) => {
+			if (!entries[0].isIntersecting) return;
 			setTimeout(() => {
 				setCount((value) => value + 1);
 			}, 1500);
+			observer.unobserve(entries[0].target);
+		});
+	}, []);
 
-			observer.disconnect();
-		},
-	);
 	useEffect(() => setCount(1), [selectedCategory]);
 
 	useEffect(() => {
 		if (
 			NUMBER_OF_ITEMS_PER_PAGE * count >= postListByCategory.length ||
 			containerRef.current === null ||
-			containerRef.current.children.length === 0
+			containerRef.current.children.length === 0 ||
+			observer.current === null
 		)
 			return;
 
-		observer.observe(
+		observer.current.observe(
 			containerRef.current.children[containerRef.current.children.length - 1],
 		);
 	}, [count, selectedCategory]);
