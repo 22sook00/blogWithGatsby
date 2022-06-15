@@ -54,9 +54,13 @@ const IndexPage: FC<TemplateProps> = ({
 	},
 }) => {
 	const image = getImage(edges[0].node.frontmatter.thumbnail);
+<<<<<<< HEAD
 	// const parsed: ParsedQuery<string> = queryString.parse(href);
 
 	const parsed: ParsedQuery<string> = queryString.parse(search);
+=======
+	const parsed: ParsedQuery<string> = queryString.parse(href);
+>>>>>>> 7788520cc0a0b62fada4e6ca4863c3c29f5c8a2d
 	const selectedCategory: string =
 		typeof parsed.category !== "string" || !parsed.category
 			? "All"
