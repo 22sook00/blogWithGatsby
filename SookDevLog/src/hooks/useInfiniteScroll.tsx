@@ -11,8 +11,6 @@ const useInfiniteScroll = function (
 	selectedCategory: string,
 	posts: any[],
 ): useInfiniteScrollType {
-	//useRef wrapper 설정하기
-
 	const containerRef: MutableRefObject<HTMLDivElement | null> =
 		useRef<HTMLDivElement>(null);
 	//몇개씩 끊어서 보여줄건지 지정하기 : 선택된 tag 에 따라 숫자를 나눠줘야 하기 떄문에 다음과같은 식 작성.
