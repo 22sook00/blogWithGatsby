@@ -17,16 +17,7 @@ const PostDetail = ({
 	const {
 		node: {
 			html,
-			frontmatter: {
-				title,
-				summary,
-				date,
-				categories,
-				// thumbnail: {
-				// 	childImageSharp: { gatsbyImageData },
-				// 	publicURL,
-				// },
-			},
+			frontmatter: { title, summary, date, categories },
 		},
 	} = edges[0];
 
