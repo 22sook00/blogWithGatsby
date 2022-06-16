@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://22sook00/sitemap/sitemap-index.xml
+Host: https://22sook00

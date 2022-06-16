@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-post-detail-tsx",
+    "path": "/060622/utterances/",
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"html":"<h2>Utterances</h2>\n<p>link to 👉🏼 <a href=\"https://utteranc.es/\" target=\"_blank\" rel=\"nofollow\">https://utteranc.es/</a></p>","frontmatter":{"title":"utterances","summary":"github 제공 댓글기능","date":"2022.06.06.","categories":["Git"],"thumbnail":null}}}]}},"pageContext":{"slug":"/060622/utterances/"}},
+    "staticQueryHashes": []}
