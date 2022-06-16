@@ -32,14 +32,13 @@ const Introduction = () => {
 					I'm Junior Frontend Developer, Bella || Sookyoung Lee
 					<br />
 					and currently working at "
-					<Link to="https://stay.enkor.kr/">
-						<a
-							target={"_blank"}
-							className="cursor-pointer transition text-text-dark hover:text-text-light"
-						>
-							Enkorwithus",
-						</a>
-					</Link>{" "}
+					<a
+						target={"_blank"}
+						href="https://stay.enkor.kr/"
+						className="cursor-pointer transition text-text-dark hover:text-text-light"
+					>
+						Enkorwithus",
+					</a>
 					a foreigner housing platform.
 					<br />I keep studying for better web usability and data optimization.{" "}
 					<br />

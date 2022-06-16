@@ -31,8 +31,9 @@ const PostItem = (node) => {
 					/>
 				</div>
 				<ul className="flex gap-2 mt-2">
-					{node.frontmatter?.categories?.map((category) => (
+					{node.frontmatter?.categories?.map((category: any, idx: number) => (
 						<li
+							key={idx}
 							className={`border ${
 								category === "Daily"
 									? "border-yellow-400"

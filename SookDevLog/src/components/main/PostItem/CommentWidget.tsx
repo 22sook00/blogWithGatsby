@@ -1,7 +1,7 @@
 import React, { createRef, FunctionComponent, useEffect } from "react";
 
 const src = "https://utteranc.es/client.js";
-const repo = "22sook00/blogWithGatsby"; // 자신 계정의 레포지토리로 설정
+const repo = "22sook00/sookDev.github.io"; // 자신 계정의 레포지토리로 설정
 
 type UtterancesAttributesType = {
 	src: string;
