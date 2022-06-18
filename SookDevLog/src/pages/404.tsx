@@ -7,14 +7,11 @@ const NotFoundPage = () => {
 			<h1 className="text-[68px] mb-6">404</h1>
 			<p>찾을 수 없는 페이지입니다 😲</p>
 			<p> 다른 콘텐츠를 보러 가보시겠어요?</p>
-			<Link to="/">
-				<a
-					// href="/"
-					// className="mt-6 text-sm rounded-md shadow-md border w-fit h-fit px-4 py-2 transition hover:bg-hover-gray-bg"
-					className="btn-primary"
-				>
-					메인으로
-				</a>
+			<Link
+				to="/"
+				className="mt-6 text-sm rounded-md shadow-md border w-fit h-fit px-4 py-2 transition hover:bg-hover-gray-bg"
+			>
+				메인으로
 			</Link>
 		</div>
 	);

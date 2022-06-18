@@ -7,10 +7,11 @@ const Header = () => {
 			<div className="max-w-8xl mx-auto">
 				<div className="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
 					<div className="relative flex items-center">
-						<Link to="/">
-							<a className="cursor-pointer mr-6 flex-none w-[2.0625rem] overflow-hidden md:w-auto transition text-sky-600 hover:dark:text-sky-400">
-								SookDev
-							</a>
+						<Link
+							to="/"
+							className="cursor-pointer mr-6 flex-none w-[2.0625rem] overflow-hidden md:w-auto transition text-sky-600 hover:dark:text-sky-400"
+						>
+							SookDev
 						</Link>
 						<input
 							placeholder="🔎 Search icon 올 부분"
@@ -24,33 +25,27 @@ const Header = () => {
 							<nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
 								<ul className="flex space-x-8">
 									<li>
-										<Link to="/post/front">
-											<a
-												className="transition hover:text-sky-500 dark:hover:text-sky-400"
-												// href="/post/front"
-											>
-												Front
-											</a>
+										<Link
+											to="/post/front"
+											className="transition hover:text-sky-500 dark:hover:text-sky-400"
+										>
+											Front
 										</Link>
 									</li>
 									<li>
-										<Link to="/post/dev">
-											<a
-												className="transition hover:text-sky-500 dark:hover:text-sky-400"
-												// href="/post/dev"
-											>
-												Dev
-											</a>
+										<Link
+											to="/post/dev"
+											className="transition hover:text-sky-500 dark:hover:text-sky-400"
+										>
+											Dev
 										</Link>
 									</li>
 									<li>
-										<Link to="/daily">
-											<a
-												className="transition hover:text-sky-500 dark:hover:text-sky-400"
-												// href="/daily"
-											>
-												Daily
-											</a>
+										<Link
+											to="/daily"
+											className="transition hover:text-sky-500 dark:hover:text-sky-400"
+										>
+											Daily
 										</Link>
 									</li>
 								</ul>
