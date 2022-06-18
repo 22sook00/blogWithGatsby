@@ -101,17 +101,18 @@ const IndexPage: FC<TemplateProps> = ({
 				url={siteUrl}
 				// image={publicURL}
 			>
-				{/* <Link to="/info/">To Info</Link> */}
 				<Introduction />
-				<CategoryList
-					selectedCategory={selectedCategory}
-					categoryList={categoryList}
-				/>
-				<PostList
-					postList={postList}
-					filteryBycategory={filteryBycategory[0]}
-					containerRef={containerRef}
-				/>
+				<section className="grid grid-cols-4 gap-4 mt-16 ">
+					<PostList
+						postList={postList}
+						filteryBycategory={filteryBycategory[0]}
+						containerRef={containerRef}
+					/>
+					<CategoryList
+						selectedCategory={selectedCategory}
+						categoryList={categoryList}
+					/>
+				</section>
 				<Footer />
 			</LayoutDefault>
 		</main>
