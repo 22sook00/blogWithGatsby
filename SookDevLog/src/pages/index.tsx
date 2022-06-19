@@ -13,10 +13,25 @@ import PostList from "@src/components/main/PostList/PostList";
 import useInfiniteScroll from "@src/hooks/useInfiniteScroll";
 import { Helmet } from "react-helmet";
 
-interface TemplateProps {
-	// location: {
-	// 	href: string;
-	// };
+export interface FrontmatterProps {
+	categories: string[];
+	title: string;
+	date: string;
+	summary: string;
+	thumbnail?: {
+		childImageSharp: {
+			gatsbyImageData?: any;
+		};
+	};
+}
+export interface AllMarkdownRemarkProps {
+	node: {
+		fields: { slug: string };
+		frontmatter: FrontmatterProps;
+		id: number;
+	};
+}
+export interface TemplateProps {
 	location: { search };
 	data: {
 		site: {
@@ -27,7 +42,7 @@ interface TemplateProps {
 			};
 		};
 		allMarkdownRemark: {
-			edges: any[];
+			edges: Array<AllMarkdownRemarkProps>;
 		};
 		file: {
 			childImageSharp: {
@@ -53,9 +68,10 @@ const IndexPage: FC<TemplateProps> = ({
 		// },
 	},
 }) => {
-	const image = getImage(edges[0].node.frontmatter.thumbnail);
+	// const image = getImage(edges[0].node.frontmatter.thumbnail);
 	// const parsed: ParsedQuery<string> = queryString.parse(href);
 
+	const frontmatter = edges.map((data) => data.node.frontmatter);
 	const parsed: ParsedQuery<string> = queryString.parse(search);
 	const selectedCategory: string =
 		typeof parsed.category !== "string" || !parsed.category
@@ -73,7 +89,7 @@ const IndexPage: FC<TemplateProps> = ({
 						},
 					}: any,
 				) => {
-					categories.forEach((category) => {
+					categories.forEach((category: string) => {
 						if (list[category] === undefined) list[category] = 1;
 						else list[category]++;
 					});
@@ -93,6 +109,18 @@ const IndexPage: FC<TemplateProps> = ({
 		(el) => el[0] === selectedCategory,
 	);
 
+	const searchKeywords = edges.map(
+		(allPost: Pick<AllMarkdownRemarkProps, "node">) => {
+			const searchData = [
+				...allPost.node.frontmatter.categories,
+				...allPost?.node?.frontmatter?.title.split(" "),
+			];
+			return searchData;
+		},
+	);
+	console.log("searchKeywords", searchKeywords);
+	const matchingData = frontmatter.filter((data: FrontmatterProps) => {});
+
 	return (
 		<main>
 			<LayoutDefault
@@ -101,17 +129,18 @@ const IndexPage: FC<TemplateProps> = ({
 				url={siteUrl}
 				// image={publicURL}
 			>
-				{/* <Link to="/info/">To Info</Link> */}
 				<Introduction />
-				<CategoryList
-					selectedCategory={selectedCategory}
-					categoryList={categoryList}
-				/>
-				<PostList
-					postList={postList}
-					filteryBycategory={filteryBycategory[0]}
-					containerRef={containerRef}
-				/>
+				<section className="lg:grid grid-cols-4 gap-4 mt-4 lg:mt-16 ">
+					<CategoryList
+						selectedCategory={selectedCategory}
+						categoryList={categoryList}
+					/>
+					<PostList
+						postList={postList}
+						filteryBycategory={filteryBycategory[0]}
+						containerRef={containerRef}
+					/>
+				</section>
 				<Footer />
 			</LayoutDefault>
 		</main>

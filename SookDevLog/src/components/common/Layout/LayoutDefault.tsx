@@ -44,7 +44,7 @@ const LayoutDefault: FC<ILayoutProps> = ({
 			</Helmet>
 
 			<Header />
-			<div className="w-full h-[calc(100%-60px)] pt-32 m-auto px-8 lg:max-w-[1240px]">
+			<div className="w-full h-[calc(100%-60px)] py-10 lg:pt-24 default-layout">
 				{children}
 			</div>
 		</>
