@@ -15,7 +15,7 @@ const PostList: FC<IProps> = ({
 	containerRef,
 }) => {
 	return (
-		<div ref={containerRef} className="relative col-span-3 ">
+		<div ref={containerRef} className="lg:relative lg:col-span-3  ">
 			{postList.map(({ node }: any, idx: number) => (
 				<PostItem {...node} link={node.fields.slug} key={node.id} idx={idx} />
 			))}
