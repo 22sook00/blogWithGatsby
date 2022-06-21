@@ -1,6 +1,12 @@
-import React, { FC, FunctionComponent, useMemo } from "react";
+import React, {
+	FC,
+	FunctionComponent,
+	useCallback,
+	useMemo,
+	useState,
+} from "react";
 
-import { graphql, Link } from "gatsby";
+import { graphql, Link, navigate } from "gatsby";
 import ProfileImage from "@src/components/main/ProfileImage/ProfileImage";
 import LayoutDefault from "@src/components/common/Layout/LayoutDefault";
 import Introduction from "@src/components/main/Introduction/Introduction";
@@ -12,67 +18,20 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import PostList from "@src/components/main/PostList/PostList";
 import useInfiniteScroll from "@src/hooks/useInfiniteScroll";
 import { Helmet } from "react-helmet";
-
-export interface FrontmatterProps {
-	categories: string[];
-	title: string;
-	date: string;
-	summary: string;
-	thumbnail?: {
-		childImageSharp: {
-			gatsbyImageData?: any;
-		};
-	};
-}
-export interface AllMarkdownRemarkProps {
-	node: {
-		fields: { slug: string };
-		frontmatter: FrontmatterProps;
-		id: number;
-	};
-}
-export interface TemplateProps {
-	location: { search };
-	data: {
-		site: {
-			siteMetadata: {
-				title: string;
-				description: string;
-				siteUrl: string;
-			};
-		};
-		allMarkdownRemark: {
-			edges: Array<AllMarkdownRemarkProps>;
-		};
-		file: {
-			childImageSharp: {
-				gatsbyImageData: any;
-			};
-			publicURL: string;
-		};
-	};
-}
+import { TemplateProps } from "@src/interface/IgetDatas";
 
 const IndexPage: FC<TemplateProps> = ({
-	// location: { href },
-
 	location: { search },
 	data: {
 		allMarkdownRemark: { edges },
 		site: {
 			siteMetadata: { title, description, siteUrl },
 		},
-		// file: {
-		// 	childImageSharp: { gatsbyImageData },
-		// 	publicURL,
-		// },
 	},
 }) => {
-	// const image = getImage(edges[0].node.frontmatter.thumbnail);
-	// const parsed: ParsedQuery<string> = queryString.parse(href);
-
 	const frontmatter = edges.map((data) => data.node.frontmatter);
 	const parsed: ParsedQuery<string> = queryString.parse(search);
+	//!카테고리
 	const selectedCategory: string =
 		typeof parsed.category !== "string" || !parsed.category
 			? "All"
@@ -108,18 +67,24 @@ const IndexPage: FC<TemplateProps> = ({
 	const filteryBycategory = Object.entries(categoryList).filter(
 		(el) => el[0] === selectedCategory,
 	);
+	//!서치 키워드 카테고리+타이틀
+	const [searchKeyword, setSearchKeyword] = useState<string>("");
+	const handleSearchKeyword = useCallback(
+		(e: any) => {
+			e.preventDefault();
 
-	const searchKeywords = edges.map(
-		(allPost: Pick<AllMarkdownRemarkProps, "node">) => {
-			const searchData = [
-				...allPost.node.frontmatter.categories,
-				...allPost?.node?.frontmatter?.title.split(" "),
-			];
-			return searchData;
+			// navigate(`/?category=${searchKeyword}`);
+			const result = frontmatter.filter((datas) => {
+				const searchData = [datas.categories, datas.title];
+				console.log("searchData", searchData);
+				return datas.title
+					.toLocaleLowerCase()
+					.includes(searchKeyword.toLocaleLowerCase());
+			});
+			console.log("resulttitle", result);
 		},
+		[searchKeyword],
 	);
-	console.log("searchKeywords", searchKeywords);
-	const matchingData = frontmatter.filter((data: FrontmatterProps) => {});
 
 	return (
 		<main>
@@ -127,6 +92,8 @@ const IndexPage: FC<TemplateProps> = ({
 				title={title}
 				description={description}
 				url={siteUrl}
+				setSearchKeyword={setSearchKeyword}
+				handleSearchKeyword={handleSearchKeyword}
 				// image={publicURL}
 			>
 				<Introduction />
@@ -189,38 +156,3 @@ export const getPostList = graphql`
 		}
 	}
 `;
-// export const getPostList = graphql`
-// 	query getPostList {
-// 		allMarkdownRemark(
-// 			sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
-// 		) {
-// 			edges {
-// 				node {
-// 					id
-// 					fields {
-// 						slug
-// 					}
-// 					html
-// 					frontmatter {
-// 						title
-// 						summary
-// 						date(formatString: "YYYY.MM.DD.")
-// 						categories
-// 						thumbnail {
-// 							childImageSharp {
-// 								gatsbyImageData(
-// 									quality: 100
-// 									placeholder: BLURRED
-// 									formats: [AUTO, WEBP, AVIF]
-// 									transformOptions: { fit: INSIDE, cropFocus: ATTENTION }
-// 									layout: CONSTRAINED
-// 									width: 368
-// 								)
-// 							}
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// `;

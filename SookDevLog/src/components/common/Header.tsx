@@ -1,7 +1,11 @@
 import { Link } from "gatsby";
-import React from "react";
+import React, { FC, useCallback, useState } from "react";
+import { ISearchKeywords } from "@src/interface/Ilayout";
 
-const Header = () => {
+const Header: FC<ISearchKeywords> = ({
+	handleSearchKeyword,
+	setSearchKeyword,
+}) => {
 	return (
 		<section className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 border-b border-slate-900/10 dark:border-slate-50/[0.06] bg-white lg:bg-white/90 supports-backdrop-blur:bg-white/60 dark:bg-transparent ">
 			<div className="max-w-8xl mx-auto default-layout">
@@ -13,14 +17,16 @@ const Header = () => {
 						>
 							SookDev
 						</Link>
-						<input
-							placeholder="🔎 Search icon 올 부분"
-							onChange={(e) => e.target.value}
-							className="
+						<form onSubmit={handleSearchKeyword}>
+							<input
+								placeholder="🔎 Search keywords"
+								onChange={(e) => setSearchKeyword(e.target.value)}
+								className="
 							transition text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-200/10 rounded-full py-1 px-3  items-center 
 							inline-flex justify-center border border-transparent bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2
 							"
-						/>
+							/>
+						</form>
 						<div className="relative hidden lg:flex items-center ml-auto">
 							<nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
 								<ul className="flex space-x-8">

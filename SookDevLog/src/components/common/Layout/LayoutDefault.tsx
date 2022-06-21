@@ -1,14 +1,7 @@
-import React, { FC } from "react";
+import { ILayoutProps } from "@src/interface/Ilayout";
+import React, { FC, SetStateAction } from "react";
 import { Helmet } from "react-helmet";
 import Header from "../Header";
-
-interface ILayoutProps {
-	title: string;
-	description?: string;
-	url?: string;
-	image?: string;
-	children: React.ReactNode;
-}
 
 const LayoutDefault: FC<ILayoutProps> = ({
 	title,
@@ -16,6 +9,8 @@ const LayoutDefault: FC<ILayoutProps> = ({
 	url,
 	image,
 	children,
+	handleSearchKeyword,
+	setSearchKeyword,
 }) => {
 	return (
 		<>
@@ -43,7 +38,10 @@ const LayoutDefault: FC<ILayoutProps> = ({
 				<html lang="ko" />
 			</Helmet>
 
-			<Header />
+			<Header
+				setSearchKeyword={setSearchKeyword}
+				handleSearchKeyword={handleSearchKeyword}
+			/>
 			<div className="w-full h-[calc(100%-60px)] py-10 lg:pt-24 default-layout">
 				{children}
 			</div>
