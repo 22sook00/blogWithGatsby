@@ -10,4 +10,5 @@ export interface ILayoutProps extends ISearchKeywords {
 	url?: string;
 	image?: string;
 	children: React.ReactNode;
+	fullWidth?: boolean;
 }
