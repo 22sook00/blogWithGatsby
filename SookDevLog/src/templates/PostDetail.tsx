@@ -31,7 +31,7 @@ const PostDetail = ({
 				fullWidth
 				// image={publicURL}
 			>
-				<section className="title_layout  shadow-lg">
+				<section className="title_layout  ">
 					<img
 						src={data.thumbnail.publicURL}
 						alt={"d"}
