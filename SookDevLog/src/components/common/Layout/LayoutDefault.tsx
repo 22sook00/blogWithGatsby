@@ -7,7 +7,7 @@ const LayoutDefault: FC<ILayoutProps> = ({
 	title,
 	description,
 	url,
-	image,
+	fullWidth,
 	children,
 	handleSearchKeyword,
 	setSearchKeyword,
@@ -42,7 +42,11 @@ const LayoutDefault: FC<ILayoutProps> = ({
 				setSearchKeyword={setSearchKeyword}
 				handleSearchKeyword={handleSearchKeyword}
 			/>
-			<div className="w-full h-[calc(100%-60px)] py-10 lg:pt-24 default-layout">
+			<div
+				className={`w-full h-[calc(100%-60px)]   ${
+					!fullWidth && " py-10 lg:pt-24 default-layout"
+				}`}
+			>
 				{children}
 			</div>
 		</>

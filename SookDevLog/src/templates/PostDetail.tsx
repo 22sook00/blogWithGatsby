@@ -5,6 +5,7 @@ import "./PostDetailCms.css";
 import { graphql } from "gatsby";
 import React from "react";
 import CommentWidget from "@src/components/main/PostItem/CommentWidget";
+import moment from "moment";
 
 const PostDetail = ({
 	data: {
@@ -20,15 +21,28 @@ const PostDetail = ({
 			frontmatter: { title, summary, date, categories },
 		},
 	} = edges[0];
-
+	console.log("data", data);
 	return (
 		<>
 			<LayoutDefault
 				title={title}
 				description={summary}
 				url={href}
+				fullWidth
 				// image={publicURL}
 			>
+				<section className="title_layout  ">
+					<img
+						src={data.thumbnail.publicURL}
+						alt={"d"}
+						className="image_style"
+						// className="blur-md overflow-hidden absolute top-0 object-cover"
+					/>
+					<h1 className="title_style capitalize">{data.title}</h1>
+					<p className="text-sm text-text-light my-4">
+						{data.date && moment(data.date).format("dddd,MMM,DD YYYY")}
+					</p>
+				</section>
 				<div
 					className="content_layout"
 					dangerouslySetInnerHTML={{ __html: contents }}
