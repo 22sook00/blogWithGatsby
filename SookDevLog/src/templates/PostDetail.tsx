@@ -21,7 +21,7 @@ const PostDetail = ({
 			frontmatter: { title, summary, date, categories },
 		},
 	} = edges[0];
-	console.log("data", data);
+	// console.log("data", data);
 	return (
 		<>
 			<LayoutDefault

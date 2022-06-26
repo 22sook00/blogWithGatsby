@@ -6,7 +6,7 @@ summary: "웹과 네이티브 앱의 기능 모두의 이점을 갖도록 수 �
 thumbnail: "./pwa.png"
 ---
 
-# PWA란 ?
+<h1> PWA란 ? </h1>
 
 Google I/O 2016에서 처음 소개된 PWA는 Progressive Web Apps 의 약자로,
 PWA는 웹과 네이티브 앱의 기능 모두의 이점을 갖도록 수 많은 특정 기술과 표준 패턴을 사용해 개발된 웹 앱이다.
