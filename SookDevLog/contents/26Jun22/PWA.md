@@ -32,11 +32,21 @@ PWA가 캐싱이 되기 때문에 Offline이거나 속도가 느린 상태에서
 보안
 PWA는 HTTPS에서만 사용이 가능하기 때문에 일반 인터넷 데이터에 비해 보안이 강화된 상태라고 할 수 있습니다.
 
+## 단점
+
+완연한 app 이 아니기때문에 알람기능같은 몇가지 기능들이 동작하지 않을 수 있으며,
+제일 중요한것은 아직 ios 모바일 환경에서는 지원하지 않는다는 것이다.
+안드로이드, 웹에서는 크롬, 사파리, 파이어폭스 등 지원 가능하다. (웹에서는 윈도우 / 맥 다 가능!)
+
 ## 어떻게 사용할까?
+
+### build without tool
 
 <b>service-worker.js</b>
 
-Service Workers는 PWA의 핵심으로 캐싱은 어떻게 할 것인지 요청시 캐시를 먼저 보여줄지 웹서버를 통해서 먼저 보여줄지, push 등등에 대한 프로그래밍하는 기술. PWA의 거의 80%에 해당하는 기술이라고 보면 된다.
+Service Workers는 PWA의 핵심으로, 서비스워커 설정을 통해 캐싱은 어떻게 할 것인지 요청시 캐시를 먼저 보여줄지 웹서버를 통해서 먼저 보여줄지, push 등등에 대한 프로그래밍하는 기술로써, 더 풀어서 말하자면
+먼저 캐싱해둔 데이터 (or 미리 다운로드) 덕분에 오프라인 상태에서도 백그라운드 데이터를 보여줄 수 있는 상태가 될 수 있는 것이다.
+PWA의 거의 80%에 해당하는 기술이라고 보면 된다.
 
 ```js
 const CACHE_NAME = "offline";
@@ -102,7 +112,7 @@ self.addEventListener("fetch", function (event) {
 });
 ```
 
-### manifest.json
+<b>manifest.json</b>
 
 manifest.json은 설치할 때 아이콘은 무얼 사용하고 아이콘을 눌렀을때 접속할 페이지는 무엇인지, 배경색은 무슨색으로 할 것인지 등등..에 대한 설정파일이라고 보시면 됩니다.
 
@@ -129,7 +139,7 @@ manifest.json은 설치할 때 아이콘은 무얼 사용하고 아이콘을 눌
 
 ```
 
-## 번외 - app icon editor 소개
+<b>app icon editor</b>
 
 Link to 👉🏼 https://maskable.app/editor
 
@@ -157,5 +167,32 @@ Link to 👉🏼 https://maskable.app/editor
   …
 }
 ```
+
+### build with pwabuilder
+
+Link to 👉🏼 https://www.pwabuilder.com/ <br/>
+service worker 와 manifest.json 코드, icon을 직접 설정하기 어렵다면 pwabuilder 사이트를 적극 활용해도 좋다.
+pwa builder 사이트는 내 사이트가 pwa 로 적합한지, 아니라면 어떤 서비스 워커 및 manifest.json 자바스크립트 명령어가 들어가야 하는지 쉽게 적용할 수 있다.
+또한 원하는 이미지를 업로드 하기만 하면 아이콘 형태의 이미지 파일들이 생성되며, 만들어진 코드와 파일을 프로젝트에 복붙하기만 하면 된다.<br/>
+
+### building in React / Next.js environment.
+
+순수 자바스크립트가 아닌 리액트나 넥스트에서 사용할 경우 npm / yarn 패키지로 설치 가능하다.
+
+```js
+//react : https://www.npmjs.com/package/react-pwa-install
+npm i react-pwa-install
+
+// next.js :  https://www.npmjs.com/package/next-pwa
+npm i next-pwa
+
+```
+
+### pwa 홈화면 추가하기
+
+ios 모바일 기기를 제외한 곳에서 설치가 가능한데,
+<img src = './pwaExample.png' alt='pwa 주소창'>
+위와같이 크롬 및 사파리 사이트에서 다운로드 아이콘을 발견한다면 해당 사이트는 pwa로 설치가 가능한 웹사이트이다.
+클릭 한번으로 유저는 쉽게 앱처럼 사용할 수 있다.
 
 출처 https://web.dev/progressive-web-apps/#codelabs
