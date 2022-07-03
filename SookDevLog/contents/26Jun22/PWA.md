@@ -191,7 +191,7 @@ npm i next-pwa
 ### pwa 홈화면 추가하기
 
 ios 모바일 기기를 제외한 곳에서 설치가 가능한데,
-<img src = './pwaExample.png' alt='pwa 주소창'>
+<img src = './checkPwaIcon.png' alt='pwa 주소창'>
 위와같이 크롬 및 사파리 사이트에서 다운로드 아이콘을 발견한다면 해당 사이트는 pwa로 설치가 가능한 웹사이트이다.
 클릭 한번으로 유저는 쉽게 앱처럼 사용할 수 있다.
 
