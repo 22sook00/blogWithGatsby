@@ -1,0 +1,11 @@
+.summaryText {
+	font-size: 14px;
+	color: #9ca3af;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 3 !important;
+	-webkit-box-orient: vertical;
+}
