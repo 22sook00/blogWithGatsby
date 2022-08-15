@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React, { FC, useCallback, useState } from "react";
+import React, { FC } from "react";
 import { ISearchKeywords } from "@src/interface/Ilayout";
 
 const Header: FC<ISearchKeywords> = ({
