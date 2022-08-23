@@ -36,7 +36,7 @@ const IndexPage: FC<TemplateProps> = ({
 		typeof parsed.category !== "string" || !parsed.category
 			? "All"
 			: parsed.category;
-
+	const { containerRef, postList } = useInfiniteScroll(selectedCategory, edges);
 	const categoryList = useMemo(
 		() =>
 			edges.reduce(
@@ -56,35 +56,36 @@ const IndexPage: FC<TemplateProps> = ({
 					list["All"]++;
 
 					return list;
+					console.log('categories',categories)
 				},
 				{ All: 0 },
 			),
 		[],
 	);
 
-	const { containerRef, postList } = useInfiniteScroll(selectedCategory, edges);
 
 	const filteryBycategory = Object.entries(categoryList).filter(
 		(el) => el[0] === selectedCategory,
 	);
 	//!서치 키워드 카테고리+타이틀
-	const [searchKeyword, setSearchKeyword] = useState<string>("");
+	//FIXME 카테고리 리스트 및 데이터 리스트 부르는 방식 변경하기 due to search keyword. 
+	//url 로 찾는방식 대신 데이터 새로 가져오는방식으로 하기
+	const [keyword, setKeyword] = useState<string>("");
 	const handleSearchKeyword = useCallback(
 		(e: any) => {
 			e.preventDefault();
-
-			// navigate(`/?category=${searchKeyword}`);
+			// navigate(`/?category=${keyword}`);
 			const result = frontmatter.filter((datas) => {
 				const searchData = [datas.categories, datas.title];
 				console.log("searchData", searchData);
 				return datas.title
 					.toLocaleLowerCase()
-					.includes(searchKeyword.toLocaleLowerCase());
+					.includes(keyword.toLocaleLowerCase());
 			});
-			console.log("resulttitle", result);
 		},
-		[searchKeyword],
+		[keyword,setKeyword],
 	);
+	//console.log("resulttitle",frontmatter, keyword);
 
 	return (
 		<main>
@@ -92,7 +93,7 @@ const IndexPage: FC<TemplateProps> = ({
 				title={title}
 				description={description}
 				url={siteUrl}
-				setSearchKeyword={setSearchKeyword}
+				setKeyword={setKeyword}
 				handleSearchKeyword={handleSearchKeyword}
 				// image={publicURL}
 			>

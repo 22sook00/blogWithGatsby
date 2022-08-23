@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
 	return (
 		<footer className="mt-16 lg:mt-24 mb-16  
-		border flex flex-col items-end gap-2 default-layout">
+		 flex flex-col items-end gap-2 default-layout">
 			<a
 				href="https://github.com/22sook00"
 				target="_blank"

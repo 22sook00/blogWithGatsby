@@ -60,7 +60,6 @@ const PostItem = (node) => {
 							</p>
 							<p
 								className="summaryText"
-								// className="text-sm text-clip overflow-hidden "
 								dangerouslySetInnerHTML={{ __html: node.html }}
 								//dangerouslySetInnerHTML 블로그 정리하기!
 							/>
