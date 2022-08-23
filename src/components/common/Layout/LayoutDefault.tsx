@@ -10,7 +10,7 @@ const LayoutDefault: FC<ILayoutProps> = ({
 	fullWidth,
 	children,
 	handleSearchKeyword,
-	setSearchKeyword,
+	setKeyword,
 }) => {
 	return (
 		<>
@@ -39,7 +39,7 @@ const LayoutDefault: FC<ILayoutProps> = ({
 			</Helmet>
 
 			<Header
-				setSearchKeyword={setSearchKeyword}
+				setKeyword={setKeyword}
 				handleSearchKeyword={handleSearchKeyword}
 			/>
 			<div

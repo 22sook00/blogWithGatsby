@@ -12,6 +12,7 @@ const PostList: FC<PostListProps> = ({
 	postList,
 	containerRef,
 }) => {
+	//console.log('filteryBycategory?',filteryBycategory)
 	return (
 		<div ref={containerRef} className="lg:relative lg:col-span-3  ">
 			{postList.map(({ node }: any, idx: number) => (

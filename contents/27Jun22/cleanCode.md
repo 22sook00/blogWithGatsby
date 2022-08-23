@@ -17,20 +17,20 @@ thumbnail: "./cleanCode.png"
 
 ### 어떻게 좋은코드를 작성할까?
 
-- 비야네 스트롭스트룹
+- #### 비야네 스트롭스트룹
   - 논리는 간단해야한다.
   - 의존성을 최대한 줄여야 유지보수가 쉬워진다.
   - 철저한 오류처리
   - 네이밍은 일관성있게 짜자
   - 성능 최적화 / 메모리 누수
   - **목적은 정확하게, 한가지에 집중하는 코드를 작성하자.**
-- 그래디 부치
+- #### 그래디 부치
   - 가독성 중시, 설계자의 의도를 숨기지 않고 직접적으로 짜라.
-- 데이브 토마스
+- #### 데이브 토마스
   - 다른사람도 고치기 쉬운 코드가 되어야 한다.
   - 테스트 케이스가 있는 코드
   - 큰 코드보다 작은 코드가 좋다.
-- 론 제프리스
+- #### 론 제프리스
   - 중복과 높은 표현력
   - 한 기능만 수행하기
   - 초반부터 간단한 추상화 고려
@@ -43,12 +43,14 @@ thumbnail: "./cleanCode.png"
 
 ## 📗 2장 의미있는 이름
 
-- 의도를 분명히 밝혀라
+- #### 의도를 분명히 밝혀라
   - 주석이 필요할 정도의 네이밍이라면 의도를 제대로 표현하지 못한것이다.
-- 그릇된 정보를 피해라.
+- #### 그릇된 정보를 피해라.
   - 일관성이 떨어지는 표기법 === 그릇된 정보
-- 의미있게 구분해라
+- #### 의미있게 구분해라
+
   - 동일한 범위 내 다른 두개념 등 연속된 숫자로 명명하지 말자. info / data 는 의미가 불분명하며 중복이 되기 쉬우므로, 비슷한 개념이 있다면 더 명확한 이름으로 짓도록 하자.
+
   ```jsx
   const internshipList = [...internData , internData]
   const handleInternship = useCallback((e) => {
@@ -61,10 +63,14 @@ thumbnail: "./cleanCode.png"
   const findInternWorkingSpecificDays = useCallback((PAY) => {
    return internshipList.find((intern)=> intern.workDaysPerWeek === WORK_DAYS_PER_WEEK )
   },[internshipList]}
+
   ```
-- 발음하기 쉬운 이름을 사용해라
-- 검색하기 쉬운 이름을 사용해라
+
+- #### 발음하기 쉬운 이름을 사용해라
+- #### 검색하기 쉬운 이름을 사용해라
+
   - 여러곳에서 사용하는 단순 숫자, 알파벳일 경우 검색하기 쉬운 변수/상수 이름을 짓는것이 바람직하다.
+
   ```jsx
   <span>$10</span>
 
@@ -73,23 +79,26 @@ thumbnail: "./cleanCode.png"
   const PAYMENT_PER_HOUR = 10
   <span>${PAYMENT_PER_HOUR}</span>
   ```
-- 인코딩을 피해라
+
+- #### 인코딩을 피해라
   - 헝가리식 표기법 : 컴퓨터 프로그래밍에서 변수 및 함수의 이름 인자 앞에 데이터 타입을 명시하는 코딩 규칙
   - 멤버 변수 접두어 : 클래스 및 함수는 접두어가 필요 없을 정도로 작게 짜야 한다.
   - 인터페이스 : **ShapeFactoryImp** vs IShapeFactoryImp
-- 클래스 / 객체 이름 : 명사가 적합
-- 메소드 이름 : 동사가 적합
-- 한 개념에 한 단어를 사용해라
+- #### 클래스 / 객체 이름 : 명사가 적합
+- #### 메소드 이름 : 동사가 적합
+- #### 한 개념에 한 단어를 사용해라
   - 똑같은 기능을 하는 메소드 ( fetch / retrieve / get )를 각기 다른단어로, 다른곳에서 쓰게 된다면 찾기 힘들 뿐 아니라 일관성이 달라 다른 타입이라고 생각 할 수 있다.
-  ex) getAddress 를 썼다면 다른곳에서도 fetchUserProfile 이 아니라, getUserProfile 이런식으로 통일해서 만들어야 한다.
-- 다른 개념에는 같은언어를 사용하지 않는다.
+    ex) getAddress 를 썼다면 다른곳에서도 fetchUserProfile 이 아니라, getUserProfile 이런식으로 통일해서 만들어야 한다.
+- #### 다른 개념에는 같은언어를 사용하지 않는다.
   - 일관성을 고려하기 위해 다른 목적에 있는 메소드에도 같은이름을 붙인다면 말장난에 불과하다. 비슷하지만 맥락이 다르다면 다른 단어를 쓰는게 맞다.
-  ex) addNumber / addName ⇒ appendNumber / insertName
-- 문제영역에서 가져온 이름을 사용하라
+    ex) addNumber / addName ⇒ appendNumber / insertName
+- #### 문제영역에서 가져온 이름을 사용하라
   - 적절한 프로그래머 용어가 없다면 문제영역에서 가져온다.
-- 의미있는 맥락을 추가해라
+- #### 의미있는 맥락을 추가해라
+
   - 변수 / 메소드만 봤을때 어떠한 영역의 일부인지 알아채기 어려울 수 있으니 의미가 분명하도록 변수명을 짓도록 한다.
-  ex )
+    ex )
+
   ```jsx
   // 전체적인 맥락을 살펴볼때 주소에 관련된 변수라는 것이 연상되지만, 각각 하나로만 보면 한번에 유추하기 어렵다.
   name, street, houseNumber, city, state, zipcode;
@@ -97,7 +106,8 @@ thumbnail: "./cleanCode.png"
   // 변수 및 메소드앞에 정확한 의미를 넣어주면 하나씩 보더라도 이해가 간다.
   addrName, addrStreet, addrHouseNumber, addrCity, addrState, addrZipcode;
   ```
-- 불필요한 맥락을 없애라
+
+- #### 불필요한 맥락을 없애라
   - 의미가 분명하다면 짧은이름이 좋다. 이름에는 불필요한 맥락을 추가하지 않는다.
 
 ## 📘 3장 함수

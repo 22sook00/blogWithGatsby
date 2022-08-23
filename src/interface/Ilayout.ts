@@ -1,7 +1,7 @@
 import { SetStateAction } from "react";
 
 export interface ISearchKeywords {
-	setSearchKeyword?: React.Dispatch<SetStateAction<string>>;
+	setKeyword?: React.Dispatch<SetStateAction<string>>;
 	handleSearchKeyword?: (e) => void;
 }
 export interface ILayoutProps extends ISearchKeywords {
