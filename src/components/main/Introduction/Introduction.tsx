@@ -1,8 +1,5 @@
-import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+
 import React, { FC } from "react";
-import { Helmet } from "react-helmet";
-import ProfileImage, { IProfileImgProps } from "../ProfileImage/ProfileImage";
 
 const Introduction = () => {
 	return (
@@ -26,7 +23,7 @@ const Introduction = () => {
 			</div>
 			<div>
 				<h1 className="text-3xl lg:text-[44px]">Hello,</h1>
-				<h2 className="text-lg lg:text-xl mb-2">
+				<h2 className="text-lg lg:text-xl my-2">
 					Welcome to the Sookyoung's devlog 🙌🏼
 				</h2>
 				<div className="text-sm lg:text-base text-justify">
@@ -37,7 +34,7 @@ const Introduction = () => {
 						<a
 							target={"_blank"}
 							href="https://stay.enkor.kr/"
-							className="cursor-pointer transition text-text-dark hover:text-text-light"
+							className="underline  underline-offset-2 cursor-pointer transition text-text-dark hover:text-text-light"
 						>
 							Enkorwithus",
 						</a>{" "}

@@ -1,15 +1,13 @@
+import React, { FC } from "react";
 import Loading from "@src/components/common/Loader/Loading";
-import useInfiniteScroll from "@src/hooks/useInfiniteScroll";
-import React, { FC, useEffect } from "react";
 import PostItem from "../PostItem/PostItem";
 
-interface IProps {
+interface PostListProps {
 	postList: any;
 	filteryBycategory: any;
 	containerRef?: any;
 }
-
-const PostList: FC<IProps> = ({
+const PostList: FC<PostListProps> = ({
 	filteryBycategory,
 	postList,
 	containerRef,
@@ -23,7 +21,7 @@ const PostList: FC<IProps> = ({
 				className={`${
 					filteryBycategory[1] === postList.length
 						? "hidden"
-						: " inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8 pointer-events-none dark:from-slate-900 absolute"
+						: " inset-x-0 bottom-0 flex justify-center absolute  bg-gradient-to-t from-white pt-32 pb-8 pointer-events-none"
 				}`}
 			>
 				<Loading />
