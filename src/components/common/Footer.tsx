@@ -3,16 +3,19 @@ import React from "react";
 
 const Footer = () => {
 	return (
-		<footer className="mt-16 lg:mt-24 mb-16  flex flex-col items-end gap-2 default-layout">
+		<footer className="mt-16 lg:mt-24 mb-16  
+		border flex flex-col items-end gap-2 default-layout">
 			<a
 				href="https://github.com/22sook00"
 				target="_blank"
 				className="flex h-fit items-center gap-1"
 			>
+				
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="h-5 w-5"
 					fill="none"
+
 					viewBox="0 0 24 24"
 					stroke="currentColor"
 					// stroke-width="2"
