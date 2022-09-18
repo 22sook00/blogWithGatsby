@@ -151,3 +151,35 @@ Custom Hooks을 저장하기 위한 디렉토리.
 Gatsby에서 제공하는 API를 통해 이 디렉토리에 저장된 템플릿 컴포넌트로 여러 페이지를 만든다.
 
 pages 디렉토리와는 다르게 파일명으로 페이지에 접근이 불가하다.
+
+### posting category 규칙
+
+- 포스팅 카테고리의 대분류는 웹 / 앱 / 자바스크립트 / 스타일 / 네트워크 / 데브옵스 / 버그픽스 / 리뷰 / ETC
+- 웹 관련 프레임워크 , 라이브러리 관련 사항들이 온다.
+  - react
+  - next.js
+  - redux-toolkit
+- 앱 관련 개념 , 설치방법 , 프레임워크 , 라이브러리 사항들이 온다.
+  - xcode 설치방법
+  - react-native
+  - flutter
+  - ionic ..
+- 자바스크립트는 알고리즘 및 많이 쓰일법한 기능들을 작성한다.
+  - intersectionObserver
+  - div contentEditable
+- 스타일에는 스타일 관련 css 라이브러리 소개 및 기능만 오도록 한다.
+  - tailwindcss
+  - scss
+  - styled-component
+  - headless ui
+  - fade in 효과 css 로 구현하기 .. (ex)
+- 네트워크에는 컴퓨터 용어개념 및 cs 공부 요소를 넣도록 한다.
+  - pwa
+  - 용어정리 모음집
+- 데브옵스에는 배포관련 사항들이 온다.
+  - AWS route 53 / s3 / cloud front / beanstalk ..
+  - Vercel
+  - docker
+- 버그픽스에는 카테고리 상관없이 겪었던 에러와 해결방식을 작성한다.
+- 리뷰에는 개발관련 서적 및 제품을 리뷰하여 글로 남기도록 한다.
+- ETC 는 그 외의 모든 사항들을 작성한다.

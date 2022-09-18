@@ -1,16 +1,12 @@
 ---
 date: "2022-05-08"
 title: "infiniteScroll using IntersectionObserver"
-categories: ["React", "GraphQl", "Typescript"]
+categories: ["react"]
 summary: "IntersectionObserver"
 thumbnail: "./050822_1.png"
 ---
 
-## Before I start ..
-
-# IntersectionObserver 배워보고싶었는데 이런 혜자스러운!!!
-
-띠요옹!
+# IntersectionObserver
 
 ### IntersectionObserver를 이용한 인피니트스크롤 개념
 

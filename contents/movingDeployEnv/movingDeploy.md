@@ -1,7 +1,7 @@
 ---
 date: "2022-06-16"
 title: "AWS Amplify 에서 Vercel 로 배포환경 옮기기"
-categories: ["Deploy", "BugFix"]
+categories: ["deploy", "error"]
 summary: "amplify and vercel"
 thumbnail: "./route53.png"
 ---

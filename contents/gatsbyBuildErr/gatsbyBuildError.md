@@ -1,7 +1,7 @@
 ---
 date: "2022-06-06"
 title: "gatsbyBuildError"
-categories: ["BugFix"]
+categories: ["error"]
 summary: "gatsbyBuildError "
 thumbnail: "./gatsbyBuildError.png"
 ---

@@ -1,7 +1,7 @@
 ---
 date: "2022-06-21"
 title: "지옥의 에러로그"
-categories: ["BugFix", "Git", "Deploy"]
+categories: ["error", "git", "deploy"]
 summary: "환경변수는 정말 조심히 건드리자."
 thumbnail: "./err1.png"
 ---

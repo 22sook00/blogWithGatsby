@@ -31,75 +31,56 @@ const IndexPage: FC<TemplateProps> = ({
 }) => {
 	const frontmatter = edges.map((data) => data.node.frontmatter);
 	const parsed: ParsedQuery<string> = queryString.parse(search);
-	//!카테고리
+
+	////!카테고리
 	const selectedCategory: string =
 		typeof parsed.category !== "string" || !parsed.category
 			? "All"
 			: parsed.category;
+
 	const { containerRef, postList } = useInfiniteScroll(selectedCategory, edges);
-	const categoryList = useMemo(
-		() =>
-			edges.reduce(
-				(
-					list: any,
-					{
-						node: {
-							frontmatter: { categories },
-						},
-					}: any,
-				) => {
-					categories.forEach((category: string) => {
-						if (list[category] === undefined) list[category] = 1;
-						else list[category]++;
-					});
+	//const filteryBycategory = Object.entries(categoryList).filter(
+	//	(el) => el[0] === selectedCategory,
+	//);
 
-					list["All"]++;
-
-					return list;
-					console.log('categories',categories)
-				},
-				{ All: 0 },
-			),
-		[],
-	);
-
-
-	const filteryBycategory = Object.entries(categoryList).filter(
-		(el) => el[0] === selectedCategory,
-	);
 	//!서치 키워드 카테고리+타이틀
 	//FIXME 카테고리 리스트 및 데이터 리스트 부르는 방식 변경하기 due to search keyword. 
 	//url 로 찾는방식 대신 데이터 새로 가져오는방식으로 하기
-	const [keyword, setKeyword] = useState<string>("");
-	const handleSearchKeyword = useCallback(
-		(e: any) => {
-			e.preventDefault();
-			// navigate(`/?category=${keyword}`);
-			const result = frontmatter.filter((datas) => {
-				const searchData = [datas.categories, datas.title];
-				console.log("searchData", searchData);
-				return datas.title
-					.toLocaleLowerCase()
-					.includes(keyword.toLocaleLowerCase());
-			});
-		},
-		[keyword,setKeyword],
-	);
-	//console.log("resulttitle",frontmatter, keyword);
+	//const [keyword, setKeyword] = useState<string>("");
+	//const handleSearchKeyword = useCallback(
+	//	(e: any) => {
+	//		e.preventDefault();
+	//		// navigate(`/?category=${keyword}`);
+	//		const result = frontmatter.filter((datas) => {
+	//			const searchData = [datas.categories, datas.title];
+	//			console.log("searchData", searchData);
+	//			return datas.title
+	//				.toLocaleLowerCase()
+	//				.includes(keyword.toLocaleLowerCase());
+	//		});
+	//	},
+	//	[keyword,setKeyword],
+	//);
 
+	const allCategories = frontmatter.map((list)=>list.categories).flat();
+	const filteryBycategory = allCategories.reduce((accu, curr) => { 
+		accu[curr] = (accu[curr] || 0)+1; 
+		return {all:allCategories.length,...accu};
+	}, {});
+console.log('filteryBycategory?',filteryBycategory)
 	return (
 		<main>
 			<LayoutDefault
 				title={title}
 				description={description}
 				url={siteUrl}
-				setKeyword={setKeyword}
-				handleSearchKeyword={handleSearchKeyword}
+				//setKeyword={setKeyword}
+				//handleSearchKeyword={handleSearchKeyword}
 				// image={publicURL}
 			>
 				<Introduction />
 				<section className="lg:grid grid-cols-4 gap-4 mt-4 lg:mt-16 ">
-					<CategoryList
+					{/*<CategoryList
 						selectedCategory={selectedCategory}
 						categoryList={categoryList}
 					/>
@@ -107,7 +88,7 @@ const IndexPage: FC<TemplateProps> = ({
 						postList={postList}
 						filteryBycategory={filteryBycategory[0]}
 						containerRef={containerRef}
-					/>
+					/>*/}
 				</section>
 				<Footer />
 			</LayoutDefault>

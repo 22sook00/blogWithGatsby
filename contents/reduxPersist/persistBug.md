@@ -1,7 +1,7 @@
 ---
 date: "2022-05-25"
 title: "persist bug fix"
-categories: ["React", "Redux-persist", "BugFix", "Typescript"]
+categories: ["react", "redux", "error", "typescript"]
 summary: "PersistGate' cannot be used as a JSX component... 버그해결"
 thumbnail: "./persistBug_1.png"
 ---

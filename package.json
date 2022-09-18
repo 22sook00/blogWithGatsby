@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@heroicons/react": "^2.0.8",
     "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.13.1",
     "gatsby-plugin-canonical-urls": "^4.15.0",
