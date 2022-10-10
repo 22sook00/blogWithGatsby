@@ -37,7 +37,7 @@ const CategoryList: FC<ICategoryListProps> = ({
 
 	return (
 		<div
-			className={`lg:sticky top-[63px] lg:top-[79px] z-50 bg-white col-span-1 py-4 pb-8 lg:p-6 lg:mt-4 mb-4 lg:border lg:rounded-lg h-fit ${
+			className={`lg:sticky top-[63px] lg:top-[79px] z-40 bg-white col-span-1 py-4 pb-8 lg:p-6 lg:mt-4 mb-4 lg:border lg:rounded-lg h-fit ${
 				isShowShadow && "border-b"
 			}`}
 		>

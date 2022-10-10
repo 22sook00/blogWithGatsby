@@ -1,26 +1,17 @@
-import React, {
-	FC,
-	FunctionComponent,
-	useCallback,
-	useEffect,
-	useMemo,
-	useState,
-} from "react";
+import React, { FC, useEffect, useMemo } from "react";
 
-import { graphql, Link, navigate } from "gatsby";
+import { graphql } from "gatsby";
 import ProfileImage from "@src/components/main/ProfileImage/ProfileImage";
 import LayoutDefault from "@src/components/common/Layout/LayoutDefault";
 import Introduction from "@src/components/main/Introduction/Introduction";
 import CategoryList from "@src/components/main/CategoryList/CategoryList";
-import Header from "@src/components/common/Header";
 import Footer from "@src/components/common/Footer";
 import queryString, { ParsedQuery } from "query-string";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import PostList from "@src/components/main/PostList/PostList";
 import useInfiniteScroll from "@src/hooks/useInfiniteScroll";
-import { Helmet } from "react-helmet";
 import { TemplateProps } from "@src/interface/IgetDatas";
-import { Provider, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { setAllPostList } from "@src/redux/slice/postSlice";
 
@@ -34,7 +25,6 @@ const IndexPage: FC<TemplateProps> = ({
 	},
 }) => {
 	const dispatch = useDispatch();
-	const frontmatter = edges.map((data) => data.node.frontmatter);
 	const parsed: ParsedQuery<string> = queryString.parse(search);
 	//!카테고리
 	const selectedCategory: string =
@@ -69,21 +59,19 @@ const IndexPage: FC<TemplateProps> = ({
 	const filteryBycategory = Object.entries(categoryList).filter(
 		(el) => el[0] === selectedCategory,
 	);
-	const searchArr = edges.map((search) => search.node.frontmatter);
+	const searchArr = edges.map((search) => {
+		return {
+			link: search.node.fields.slug,
+			post: search.node.frontmatter,
+		};
+	});
 	useEffect(() => {
 		dispatch(setAllPostList(searchArr));
 	}, []);
 
 	return (
 		<main>
-			<LayoutDefault
-				title={title}
-				description={description}
-				url={siteUrl}
-				//setKeyword={setKeyword}
-				//handleSearchKeyword={handleSearchKeyword}
-				// image={publicURL}
-			>
+			<LayoutDefault title={title} description={description} url={siteUrl}>
 				<Introduction />
 				<section className="lg:grid grid-cols-4 gap-4 mt-4 lg:mt-16 ">
 					<CategoryList
