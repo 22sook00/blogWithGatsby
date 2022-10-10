@@ -49,7 +49,7 @@ const Search = () => {
 					<Combobox.Input
 						placeholder="🔎 Search keywords"
 						className="
-						 lg:w-[250px] lg:h-10
+						 lg:w-[200px] lg:h-8
 							transition text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-200/10 rounded-full py-1 px-3  items-center 
 							inline-flex justify-center border border-transparent bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2
 							"
