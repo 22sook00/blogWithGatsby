@@ -1,7 +1,7 @@
 ---
 date: "2022-06-26"
 title: "PWA ( Procressive Web App )"
-categories: ["PWA", "Web"]
+categories: ["pwa", "web"]
 summary: "웹과 네이티브 앱의 기능 모두의 이점을 갖도록 수 많은 특정 기술과 표준 패턴을 사용해 개발된 웹 앱 "
 thumbnail: "./pwa.png"
 ---

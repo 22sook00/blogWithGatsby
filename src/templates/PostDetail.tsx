@@ -21,16 +21,9 @@ const PostDetail = ({
 			frontmatter: { title, summary, date, categories },
 		},
 	} = edges[0];
-	// console.log("data", data);
 	return (
 		<>
-			<LayoutDefault
-				title={title}
-				description={summary}
-				url={href}
-				fullWidth
-				// image={publicURL}
-			>
+			<LayoutDefault title={title} description={summary} url={href} fullWidth>
 				<section className="title_layout  ">
 					<img
 						src={data.thumbnail.publicURL}
