@@ -5,6 +5,7 @@ import Tooltip from "./Tooltip/Tooltip";
 import Search from "./Search";
 const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 	const [tooltip, setTooltip] = useState<boolean>(false);
+	const [isNight, setIsNight] = useState(false);
 	return (
 		<section className="sticky top-0 z-40 w-full backdrop-blur  flex-none transition-colors duration-500 lg:z-50 border-b border-slate-900/10 dark:border-slate-50/[0.06] bg-white lg:bg-white/90 supports-backdrop-blur:bg-white/30 dark:bg-white/80 ">
 			<div className="mx-auto default-layout">
@@ -27,27 +28,27 @@ const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 								<ul className="flex space-x-8">
 									<li>
 										<Link
-											to="/post/front"
-											className=" cursor-not-allowed transition hover:text-sky-500 dark:hover:text-sky-400"
-										>
-											Front
-										</Link>
-									</li>
-									<li>
-										<Link
-											to="/post/dev"
+											to="/about"
 											className="cursor-not-allowed transition hover:text-sky-500 dark:hover:text-sky-400"
 										>
-											Dev
+											About Me
 										</Link>
 									</li>
 									<li>
 										<Link
-											to="/daily"
+											to="?category=daily"
 											className="cursor-not-allowed transition hover:text-sky-500 dark:hover:text-sky-400"
 										>
 											Daily
 										</Link>
+									</li>
+									<li>
+										<button
+											onClick={() => setIsNight(!isNight)}
+											className="text-[20px] cursor-not-allowed transition hover:text-sky-500 dark:hover:text-sky-400"
+										>
+											{isNight ? "🌜" : "🌞"}
+										</button>
 									</li>
 								</ul>
 							</nav>
