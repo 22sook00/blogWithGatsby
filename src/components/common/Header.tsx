@@ -7,7 +7,7 @@ const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 	const [tooltip, setTooltip] = useState<boolean>(false);
 	return (
 		<section className="sticky top-0 z-40 w-full backdrop-blur  flex-none transition-colors duration-500 lg:z-50 border-b border-slate-900/10 dark:border-slate-50/[0.06] bg-white lg:bg-white/90 supports-backdrop-blur:bg-white/30 dark:bg-white/80 ">
-			<div className="max-w-8xl mx-auto default-layout">
+			<div className="mx-auto default-layout">
 				<div className="py-4 border-slate-900/10  lg:border-0 dark:border-slate-300/10 ">
 					<div className="relative flex items-center justify-between">
 						<Link
@@ -16,16 +16,7 @@ const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 						>
 							SookDev
 						</Link>
-						{/*<form onSubmit={handleSearchKeyword}>
-							<input
-								placeholder="🔎 Search keywords"
-								onChange={(e) => setKeyword(e.target.value)}
-								className="
-							transition text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-200/10 rounded-full py-1 px-3  items-center 
-							inline-flex justify-center border border-transparent bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2
-							"
-							/>
-						</form>*/}
+
 						<Search />
 						<div
 							onMouseEnter={() => setTooltip(true)}

@@ -43,22 +43,25 @@ const Search = () => {
 	};
 
 	return (
-		<div className="fixed top-16 w-72">
+		<div>
 			<Combobox value={selected} onChange={setSelected}>
-				<div className="relative mt-1">
-					<div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
-						<Combobox.Input
-							className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-							onChange={(event) => setQuery(event.target.value)}
-							onKeyUp={() => handleKeboardMoveTo(selected)}
+				<div className="relative">
+					<Combobox.Input
+						placeholder="🔎 Search keywords"
+						className="
+						 lg:w-[250px] lg:h-10
+							transition text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-200/10 rounded-full py-1 px-3  items-center 
+							inline-flex justify-center border border-transparent bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2
+							"
+						onChange={(event) => setQuery(event.target.value)}
+						onKeyUp={() => handleKeboardMoveTo(selected)}
+					/>
+					<Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+						<ChevronUpDownIcon
+							className="h-5 w-5 text-gray-400"
+							aria-hidden="true"
 						/>
-						<Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-							<ChevronUpDownIcon
-								className="h-5 w-5 text-gray-400"
-								aria-hidden="true"
-							/>
-						</Combobox.Button>
-					</div>
+					</Combobox.Button>
 					<Transition
 						as={Fragment}
 						leave="transition ease-in duration-100"
@@ -66,7 +69,7 @@ const Search = () => {
 						leaveTo="opacity-0"
 						afterLeave={() => setQuery("")}
 					>
-						<Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+						<Combobox.Options className="absolute mt-4 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
 							{filteredSearch?.length === 0 && query !== "" ? (
 								<div className="relative cursor-default select-none py-2 px-4 text-gray-700">
 									Nothing found.
@@ -76,7 +79,7 @@ const Search = () => {
 									<Combobox.Option
 										key={idx}
 										className={({ active }) =>
-											`z-50 relative cursor-pointer select-none py-2 pl-10 pr-4 ${
+											`z-50 relative cursor-pointer select-none py-2 px-4 ${
 												active ? "bg-blue-100 text-primary" : "text-gray-900"
 											}`
 										}
