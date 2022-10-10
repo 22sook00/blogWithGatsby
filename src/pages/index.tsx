@@ -2,6 +2,7 @@ import React, {
 	FC,
 	FunctionComponent,
 	useCallback,
+	useEffect,
 	useMemo,
 	useState,
 } from "react";
@@ -19,6 +20,9 @@ import PostList from "@src/components/main/PostList/PostList";
 import useInfiniteScroll from "@src/hooks/useInfiniteScroll";
 import { Helmet } from "react-helmet";
 import { TemplateProps } from "@src/interface/IgetDatas";
+import { Provider, useDispatch } from "react-redux";
+
+import { setAllPostList } from "@src/redux/slice/postSlice";
 
 const IndexPage: FC<TemplateProps> = ({
 	location: { search },
@@ -29,6 +33,7 @@ const IndexPage: FC<TemplateProps> = ({
 		},
 	},
 }) => {
+	const dispatch = useDispatch();
 	const frontmatter = edges.map((data) => data.node.frontmatter);
 	const parsed: ParsedQuery<string> = queryString.parse(search);
 	//!카테고리
@@ -54,38 +59,20 @@ const IndexPage: FC<TemplateProps> = ({
 					});
 
 					list["All"]++;
-
 					return list;
-					console.log('categories',categories)
 				},
 				{ All: 0 },
 			),
 		[],
 	);
 
-
 	const filteryBycategory = Object.entries(categoryList).filter(
 		(el) => el[0] === selectedCategory,
 	);
-	//!서치 키워드 카테고리+타이틀
-	//FIXME 카테고리 리스트 및 데이터 리스트 부르는 방식 변경하기 due to search keyword. 
-	//url 로 찾는방식 대신 데이터 새로 가져오는방식으로 하기
-	const [keyword, setKeyword] = useState<string>("");
-	const handleSearchKeyword = useCallback(
-		(e: any) => {
-			e.preventDefault();
-			// navigate(`/?category=${keyword}`);
-			const result = frontmatter.filter((datas) => {
-				const searchData = [datas.categories, datas.title];
-				console.log("searchData", searchData);
-				return datas.title
-					.toLocaleLowerCase()
-					.includes(keyword.toLocaleLowerCase());
-			});
-		},
-		[keyword,setKeyword],
-	);
-	//console.log("resulttitle",frontmatter, keyword);
+	const searchArr = edges.map((search) => search.node.frontmatter);
+	useEffect(() => {
+		dispatch(setAllPostList(searchArr));
+	}, []);
 
 	return (
 		<main>
@@ -93,8 +80,8 @@ const IndexPage: FC<TemplateProps> = ({
 				title={title}
 				description={description}
 				url={siteUrl}
-				setKeyword={setKeyword}
-				handleSearchKeyword={handleSearchKeyword}
+				//setKeyword={setKeyword}
+				//handleSearchKeyword={handleSearchKeyword}
 				// image={publicURL}
 			>
 				<Introduction />

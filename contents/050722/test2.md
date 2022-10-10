@@ -1,7 +1,7 @@
 ---
 date: "2022-05-07"
 title: "graphql 적응기"
-categories: ["Web", "GraphQl", "React", "Typescript", "Tailwindcss"]
+categories: ["web", "graphql", "react", "typescript", "tailwindcss"]
 summary: "특정, 필요한 데이터만 가져올수있는점이 좋군요!"
 thumbnail: "./test2.png"
 ---

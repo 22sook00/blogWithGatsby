@@ -1,5 +1,5 @@
 ---
-date: "2022-06-16"
+date: "2022-10-09"
 title: "AWS Amplify 에서 Vercel 로 배포환경 옮기기"
 categories: ["deploy", "bugFix"]
 summary: "amplify and vercel"
