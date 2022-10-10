@@ -1,3 +1,4 @@
+import { useAppSelector } from "@src/hooks/reduxHooks";
 import { ILayoutProps } from "@src/interface/Ilayout";
 import React, { FC, SetStateAction } from "react";
 import { Helmet } from "react-helmet";
@@ -9,8 +10,6 @@ const LayoutDefault: FC<ILayoutProps> = ({
 	url,
 	fullWidth,
 	children,
-	handleSearchKeyword,
-	setKeyword,
 }) => {
 	return (
 		<>
@@ -38,10 +37,7 @@ const LayoutDefault: FC<ILayoutProps> = ({
 				<html lang="ko" />
 			</Helmet>
 
-			<Header
-				setKeyword={setKeyword}
-				handleSearchKeyword={handleSearchKeyword}
-			/>
+			<Header />
 			<div
 				className={`w-full h-[calc(100%-60px)]   ${
 					!fullWidth && " py-10 lg:pt-24 default-layout"

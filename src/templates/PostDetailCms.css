@@ -6,6 +6,7 @@
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	padding: 20px;
 }
 .title_style {
 	font-weight: 500;

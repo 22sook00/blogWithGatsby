@@ -24,3 +24,8 @@ button,
 input:focus {
 	outline: none;
 }
+.utterances {
+	margin: 0 auto !important;
+	padding: 20px !important;
+	max-width: 900px !important;
+}

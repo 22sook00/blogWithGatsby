@@ -38,13 +38,13 @@ const PostItem = (node) => {
 									<li
 										key={idx}
 										className={`border ${
-											category === "Daily"
+											category === "daily"
 												? "border-yellow-400"
-												: category === "React" ||
-												  category === "Typescript" ||
-												  category === "Next.js"
+												: category === "react" ||
+												  category === "typescript" ||
+												  category === "next.js"
 												? "border-sky-400"
-												: category === "Web" || category === "App"
+												: category === "web" || category === "app"
 												? "border-green-600"
 												: "border-pink-400"
 										}   w-fit  px-2 py-1 rounded-lg text-[10px]`}

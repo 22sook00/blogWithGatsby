@@ -2,6 +2,7 @@ import React, { createRef, FunctionComponent, useEffect } from "react";
 
 const src = "https://utteranc.es/client.js";
 const repo = "22sook00/sookDev"; // 자신 계정의 레포지토리로 설정
+//const repo = "22sook00/sook-dev.vercel.app";
 
 type UtterancesAttributesType = {
 	src: string;
@@ -26,7 +27,7 @@ const CommentWidget: FunctionComponent = function () {
 			repo,
 			"issue-term": "pathname",
 			label: "Comment",
-			theme: `github-light`,
+			theme: "dark-blue",
 			crossorigin: "anonymous",
 			async: "true",
 		};
