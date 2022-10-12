@@ -42,10 +42,15 @@ const PostItem = (node) => {
 												? "border-yellow-400"
 												: category === "react" ||
 												  category === "typescript" ||
+												  category === "javascript" ||
 												  category === "next.js"
 												? "border-sky-400"
 												: category === "web" || category === "app"
 												? "border-green-600"
+												: category === "algorithm"
+												? "border-slate-600"
+												: category === "git"
+												? "border-purple-400"
 												: "border-pink-400"
 										}   w-fit  px-2 py-1 rounded-lg text-[10px]`}
 									>
@@ -72,8 +77,6 @@ const PostItem = (node) => {
 				<GatsbyImage
 					image={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
 					alt="Gatsby Image"
-					//objectPosition={"center"}
-					//backgroundColor={"#fff"}
 					className="hidden lg:block w-[20%] h-[160px]  rounded-md"
 				/>
 			</div>
