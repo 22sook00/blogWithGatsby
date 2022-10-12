@@ -72,7 +72,9 @@ const PostItem = (node) => {
 				<GatsbyImage
 					image={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
 					alt="Gatsby Image"
-					className="hidden lg:block w-[20%] h-[160px] object-cover rounded-md"
+					//objectPosition={"center"}
+					//backgroundColor={"#fff"}
+					className="hidden lg:block w-[20%] h-[160px]  rounded-md"
 				/>
 			</div>
 		</Link>
