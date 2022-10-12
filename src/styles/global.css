@@ -29,3 +29,14 @@ input:focus {
 	padding: 20px !important;
 	max-width: 900px !important;
 }
+
+thead {
+	background: #eeeeee;
+}
+th,
+td {
+	text-align: center;
+}
+td {
+	font-size: 14px;
+}
