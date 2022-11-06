@@ -39,7 +39,7 @@ const LayoutDefault: FC<ILayoutProps> = ({
 
 			<Header />
 			<div
-				className={`w-full h-[calc(100%-60px)]   ${
+				className={`w-full h-[calc(100%-60px)] dark:bg-slate-800 dark:text-slate-200 ${
 					!fullWidth && " py-10 lg:pt-24 default-layout"
 				}`}
 			>

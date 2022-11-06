@@ -54,20 +54,20 @@ const Introduction = () => {
 							anti-corruption program
 						</a>*/}
 						The main stack is
-						<span className="text-text-primary border-text-tag-blue tag-layout capitalize">
+						<span className="text-text-primary border-text-tag-blue tag-layout capitalize bg-white">
 							react
 						</span>
-						<span className="text-text-primary border-text-tag-blue tag-layout capitalize">
+						<span className="text-text-primary border-text-tag-blue tag-layout capitalize bg-white">
 							Next.js
 						</span>
-						<span className="text-text-primary border-text-tag-blue tag-layout capitalize">
+						<span className="text-text-primary border-text-tag-blue tag-layout capitalize bg-white">
 							TypeScript
 						</span>
 						<br />
 						<br className="hidden lg:block" />I keep studying for better web
 						usability and data optimization. <br className="hidden lg:block" />I
 						am interested in app development and am currently studying
-						<span className="text-text-primary border-text-primary tag-layout">
+						<span className="text-text-primary border-text-primary tag-layout bg-white">
 							React Native
 						</span>
 						<br />

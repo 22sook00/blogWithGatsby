@@ -4,8 +4,6 @@ import LayoutDefault from "@src/components/common/Layout/LayoutDefault";
 import "../templates/PostDetailCms.css";
 import { careerData, contactData } from "@src/data/career";
 
-console.log(careerData.filter((el) => el.type === "work"));
-
 const About = () => {
 	const working = careerData.filter((el) => el.type === "work");
 	const involved = careerData.filter((el) => el.type !== "work");
@@ -48,9 +46,9 @@ const About = () => {
 				<div className="dashed-horizon-line" />
 				<h1 className="text-2xl m-0 mb-4">🛠 Stacks</h1>
 				<section className="grid grid-cols-4 gap-3 cursor-default ">
-					<article className="p-4 bg-hover-gray-bg rounded-md  text-xs font-medium">
-						<h3 className="text-base mb-3">Lang & Framework</h3>
-						<ul className="flex gap-1 flex-col">
+					<article className="p-4 bg-hover-gray-bg rounded-md  text-xs ">
+						<h3 className="text-base mb-3 font-medium">Lang & Framework</h3>
+						<ul className="flex gap-1 flex-col text-sm">
 							<li>Javascript</li>
 							<li>Typescript</li>
 							<li>React</li>
@@ -59,9 +57,9 @@ const About = () => {
 							<li>Node.js</li>
 						</ul>
 					</article>
-					<article className="p-4 bg-hover-gray-bg rounded-md  text-xs font-medium">
-						<h3 className="text-base mb-3">Library</h3>
-						<ul className="flex gap-1 flex-col">
+					<article className="p-4 bg-hover-gray-bg rounded-md  text-xs ">
+						<h3 className="text-base mb-3 font-medium">Library</h3>
+						<ul className="flex gap-1 flex-col text-sm">
 							<li>Jquery</li>
 							<li>Redux, Redux-toolkit</li>
 							<li>React-query</li>
@@ -70,9 +68,9 @@ const About = () => {
 						</ul>
 					</article>
 
-					<article className="p-4 bg-hover-gray-bg rounded-md  text-xs font-medium">
-						<h3 className="text-base mb-3">Style</h3>
-						<ul className="flex gap-1 flex-col">
+					<article className="p-4 bg-hover-gray-bg rounded-md  text-xs ">
+						<h3 className="text-base mb-3 font-medium">Style</h3>
+						<ul className="flex gap-1 flex-col text-sm">
 							<li>CSS</li>
 							<li>Tailwind css</li>
 							<li>Styled-component</li>
@@ -80,9 +78,9 @@ const About = () => {
 						</ul>
 					</article>
 
-					<article className="p-4 bg-hover-gray-bg rounded-md  text-xs font-medium">
-						<h3 className="text-base mb-3">DevOps / Tool</h3>
-						<ul className="flex gap-1 flex-col">
+					<article className="p-4 bg-hover-gray-bg rounded-md  text-xs ">
+						<h3 className="text-base mb-3 font-medium">DevOps / Tool</h3>
+						<ul className="flex gap-1 flex-col text-sm">
 							<li>AWS</li>
 							<li>Vercel</li>
 							<li>Jira</li>
@@ -102,8 +100,8 @@ const About = () => {
 									<span className="text-sm ">{el.project}</span>
 									{el.working && (
 										<span className="flex ml-2">
-											<span className="animate-ping  h-1 w-1 rounded-full bg-sky-400 opacity-75"></span>
-											<span className="rounded-full absolute h-1 w-1 bg-sky-500"></span>
+											<span className="animate-ping  h-2 w-2 rounded-full bg-sky-400 opacity-75"></span>
+											<span className="rounded-full absolute h-2 w-2 bg-sky-500"></span>
 										</span>
 									)}
 								</div>
@@ -137,7 +135,7 @@ const About = () => {
 								}
 								target={"_blank"}
 							>
-								<article className="text-base h-[100px] flex justify-center items-center flex-col cursor-pointer p-4 bg-hover-gray-bg rounded-md transition font-medium hover:bg-item-hover">
+								<article className="text-base h-[100px] flex justify-center items-center flex-col cursor-pointer p-4 bg-hover-gray-bg rounded-md transition font-medium hover:bg-item-hover dark:hover:text-text-dark">
 									{ctc.type}{" "}
 								</article>
 							</a>

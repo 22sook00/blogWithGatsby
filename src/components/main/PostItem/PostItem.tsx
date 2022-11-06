@@ -9,7 +9,7 @@ const PostItem = (node) => {
 			<div
 				className="bg-white hover:bg-slate-400/10 dark:highlight-white/5 cursor-pointer
 			lg:flex gap-4 border rounded-lg shadow-sm lg:p-6 my-4 transition
-			hover:backdrop-opacity-10  "
+			hover:backdrop-opacity-10  dark:bg-slate-800 dark:text-slate-200"
 			>
 				<GatsbyImage
 					image={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
