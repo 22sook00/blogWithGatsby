@@ -25,7 +25,6 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
 		<LayoutDefault title={title} description={description}>
 			<h1 className="text-lg shadow-lg">테일윈드되나?</h1>
 			<p className="flex gap-3  text-blue-400 ">
-				{" "}
 				{title} {description} {author}
 			</p>
 			<Link to="/">To Main</Link>

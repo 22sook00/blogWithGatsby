@@ -22,15 +22,16 @@ const Introduction = () => {
 				</div>
 			</div>
 			<div>
-				<h1 className="text-3xl lg:text-[44px]">Hello,</h1>
-				{/*<Typical
-        steps={['Hello', 1000, 'Hello world!', 500]}
-        loop={Infinity}
-        wrapper="p"
-      />*/}
-				<h2 className="text-lg lg:text-xl mt-2 mb-1">
-					Welcome to the Sookyoung's devlog 🙌🏼
-				</h2>
+				{/*<h1 className="text-3xl lg:text-[44px] mb-4">Hello,</h1>*/}
+				<h1 className="text-3xl lg:text-[44px] mb-4">
+					<Typical
+						steps={["Hello", 1000, "Hello,", 500]}
+						loop={Infinity}
+						wrapper="h1"
+					/>
+				</h1>
+				<h2>Welcome to Sookyoung's devlog 🙌🏻</h2>
+
 				<div className="text-sm lg:text-base text-justify">
 					<h3>
 						I'm Junior <b>Frontend</b> Developer, Sookyoung Lee.
@@ -53,20 +54,16 @@ const Introduction = () => {
 							anti-corruption program
 						</a>*/}
 						The main stack is
-						<span className="text-text-primary border-text-tag-blue tag-layout">
-							<Typical
-								steps={[
-									"React",
-									1000,
-									"React / TypeScript",
-									1000,
-									"React / TypeScript / Next.js",
-									1000,
-								]}
-								loop={Infinity}
-								wrapper={"span"}
-							/>
+						<span className="text-text-primary border-text-tag-blue tag-layout capitalize">
+							react
 						</span>
+						<span className="text-text-primary border-text-tag-blue tag-layout capitalize">
+							Next.js
+						</span>
+						<span className="text-text-primary border-text-tag-blue tag-layout capitalize">
+							TypeScript
+						</span>
+						<br />
 						<br className="hidden lg:block" />I keep studying for better web
 						usability and data optimization. <br className="hidden lg:block" />I
 						am interested in app development and am currently studying
