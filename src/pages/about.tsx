@@ -3,6 +3,7 @@ import Footer from "@src/components/common/Footer";
 import LayoutDefault from "@src/components/common/Layout/LayoutDefault";
 import "../templates/PostDetailCms.css";
 import { careerData, contactData } from "@src/data/career";
+import Typical from "react-typical";
 
 const About = () => {
 	const working = careerData.filter((el) => el.type === "work");
@@ -17,14 +18,24 @@ const About = () => {
 				/>
 				<h1 className="title_style capitalize"></h1>
 			</section>
-			<div className="content_layout ">
-				<section className="grid grid-cols-2 ">
-					<div className="flex flex-col justify-center whitespace-normal ">
+			<div className="content_layout  ">
+				<section className="grid lg:grid-cols-2 group">
+					<div className="order-2 lg:order-1 flex flex-col justify-center whitespace-normal mt-4 lg:mt-0 ">
 						<h3 className="m-0 text-xl">프론트엔드 개발자,</h3>
 						<h1 className="mt-0 leading-10 text-3xl">
 							<b>"이숙영" </b>입니다.
 						</h1>
-						<p className="text-lg my-2 ">[ Keep Challenging, No excuse ]</p>
+						{/*<p className="text-lg my-2 ">[ Keep Challenging, No excuse ]</p>*/}
+						<Typical
+							steps={[
+								"Keep Challenging",
+								1000,
+								"Keep Challenging, No excuse.",
+								1500,
+							]}
+							loop={Infinity}
+							wrapper="p"
+						/>
 
 						<article className="text-sm leading-6 mt-2">
 							<p className="whitespace-pre">
@@ -39,7 +50,7 @@ const About = () => {
 					<img
 						src="/me.png"
 						alt="내사진"
-						className="w-[70%] rounded-md shadow m-auto"
+						className="w-[70%] rounded-md shadow m-auto order-1 lg:order-2"
 					/>
 				</section>
 

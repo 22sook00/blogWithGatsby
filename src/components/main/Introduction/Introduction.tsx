@@ -24,11 +24,12 @@ const Introduction = () => {
 			<div>
 				{/*<h1 className="text-3xl lg:text-[44px] mb-4">Hello,</h1>*/}
 				<h1 className="text-3xl lg:text-[44px] mb-4">
-					<Typical
-						steps={["Hello", 1000, "Hello,", 500]}
+					{/*<Typical
+						steps={["He", 1000, "Hello,", 500]}
 						loop={Infinity}
 						wrapper="h1"
-					/>
+					/>*/}
+					Hello,
 				</h1>
 				<h2>Welcome to Sookyoung's devlog 🙌🏻</h2>
 
@@ -75,7 +76,7 @@ const Introduction = () => {
 						<span>
 							<a
 								href="/about"
-								className="underline  underline-offset-2 cursor-pointer transition text-text-dark hover:text-text-light"
+								className="underline underline-offset-2 cursor-pointer transition text-text-dark hover:text-text-light dark:text-slate-200"
 							>
 								About Me
 							</a>

@@ -60,7 +60,7 @@ const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 
 						<nav className="text-sm leading-6 font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
 							<ul className="flex space-x-8">
-								<li>
+								<li className="hidden lg:block">
 									<Link
 										to="/about"
 										className="cursor-pointer transition hover:text-sky-500 dark:hover:text-sky-400 "
@@ -68,7 +68,7 @@ const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 										About Me
 									</Link>
 								</li>
-								<li>
+								<li className="hidden lg:block">
 									<div
 										onMouseEnter={() => setTooltip(true)}
 										onMouseLeave={() => setTooltip(false)}
