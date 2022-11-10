@@ -27,7 +27,7 @@ const PostDetail = ({
 				<section className="title_layout  ">
 					<img
 						src={data.thumbnail.publicURL}
-						alt={"d"}
+						alt={"thumbnail"}
 						className="image_style"
 						// className="blur-md overflow-hidden absolute top-0 object-cover"
 					/>

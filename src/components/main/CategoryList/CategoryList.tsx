@@ -39,7 +39,7 @@ const CategoryList: FC<ICategoryListProps> = ({
 		<div
 			className={`lg:sticky top-[63px] lg:top-[79px] z-40 bg-white col-span-1 py-4 pb-8 lg:p-6 lg:mt-4 mb-4 lg:border lg:rounded-lg h-fit ${
 				isShowShadow && "border-b"
-			}`}
+			} dark:bg-slate-800 dark:text-slate-200`}
 		>
 			<h2 className="hidden lg:block font-bold text-xl mb-6">Category</h2>
 			<div className="flex gap-3 flex-wrap h-fit lg:mt-4">
