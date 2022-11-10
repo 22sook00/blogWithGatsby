@@ -70,7 +70,7 @@ const IndexPage: FC<TemplateProps> = ({
 	}, []);
 
 	return (
-		<main>
+		<main className="dark:bg-slate-800">
 			<LayoutDefault title={title} description={description} url={siteUrl}>
 				<Introduction />
 				<section className="lg:grid grid-cols-4 gap-4 mt-4 lg:mt-16 ">
