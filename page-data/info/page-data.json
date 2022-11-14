@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-pages-info-tsx",
-    "path": "/info/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"프론트엔드 벨라의 개발블로그","description":"주니어 프론트엔드, 벨라의 고군분투 개발 블로그 입니다.","author":"sookyoung lee"}}},"pageContext":{}},
-    "staticQueryHashes": []}
+{"componentChunkName":"component---src-pages-info-tsx","path":"/info/","result":{"data":{"site":{"siteMetadata":{"title":"프론트엔드 벨라의 개발블로그","description":"주니어 프론트엔드, 벨라의 고군분투 개발 블로그 입니다.","author":"sookyoung lee"}}},"pageContext":{}},"staticQueryHashes":[]}
