@@ -9,10 +9,14 @@ module.exports = {
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-postcss',
-    'gatsby-plugin-sitemap',
+    //'gatsby-plugin-sitemap',
+    'gatsby-plugin-advanced-sitemap',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        host: 'https://sook-dev.vercel.app',
+        sitemap: 'https://sook-dev.vercel.app/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
@@ -30,7 +34,6 @@ module.exports = {
         allExtensions: true,
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

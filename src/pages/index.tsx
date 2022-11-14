@@ -68,7 +68,7 @@ const IndexPage: FC<TemplateProps> = ({
 	useEffect(() => {
 		dispatch(setAllPostList(searchArr));
 	}, []);
-
+	console.log("rrr", title, description);
 	return (
 		<main className="dark:bg-slate-800">
 			<LayoutDefault title={title} description={description} url={siteUrl}>

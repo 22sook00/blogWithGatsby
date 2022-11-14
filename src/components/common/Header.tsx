@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeMode } from "@src/redux/slice/darkmodeSlice";
 const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 	const [tooltip, setTooltip] = useState<boolean>(false);
-	const [isNight, setIsNight] = useState(false);
+	const [isNight, setIsNight] = useState(true);
 
 	//const { darkMode } = useSelector((state: any) => state.darkMode);
 	//const theme = darkMode ? "dark" : "light";
@@ -58,7 +58,7 @@ const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 							<Search />
 						</div>
 
-						<nav className="text-sm leading-6 font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+						<nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
 							<ul className="flex space-x-8">
 								<li className="hidden lg:block">
 									<Link
