@@ -15,7 +15,6 @@ const LayoutDefault: FC<ILayoutProps> = ({
 	return (
 		<>
 			<Helmet>
-				<html lang="ko" />
 				<title>{title}</title>
 
 				<meta name="description" content={description} />
@@ -40,6 +39,8 @@ const LayoutDefault: FC<ILayoutProps> = ({
 					name="google-site-verification"
 					content="pXgOBsrwEtHvsUxUs33C6aao8Pl9Ab8yAlJ5x0jc0gA"
 				/>
+
+				<html lang="ko" />
 			</Helmet>
 
 			<Header />
