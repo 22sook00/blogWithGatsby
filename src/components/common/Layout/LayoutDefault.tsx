@@ -35,6 +35,11 @@ const LayoutDefault: FC<ILayoutProps> = ({
 				{/* <meta name="twitter:image" content={image} /> */}
 				<meta name="twitter:site" content="@사용자이름" />
 				<meta name="twitter:creator" content="@사용자이름" />
+
+				<meta
+					name="google-site-verification"
+					content="pXgOBsrwEtHvsUxUs33C6aao8Pl9Ab8yAlJ5x0jc0gA"
+				/>
 			</Helmet>
 
 			<Header />
