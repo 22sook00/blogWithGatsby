@@ -3,7 +3,7 @@ date: "2023-01-10"
 title: "애자일과 지라"
 categories: ["jira", "tool", "agile", "web"]
 summary: "Agile Software Development. 그것을 적극활용한 툴, JIRA"
-thumbnail: "./reactquery.png"
+thumbnail: "./jira.png"
 ---
 
 # 🧩 애자일 방식
