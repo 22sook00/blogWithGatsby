@@ -10,10 +10,15 @@
 		@apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
 	}
 	.tag-layout {
-		@apply ml-1 border rounded-md px-2 text-sm pb-0.5;
+		@apply w-fit ml-1 border rounded-md px-2 text-sm pb-0.5;
+	}
+	.tag-date-style {
+		@apply w-fit py-1 px-2 bg-hover-gray-bg rounded-md  text-xs font-medium border-text-line;
+	}
+	.dashed-horizon-line {
+		@apply my-10 border-dashed border-b-4;
 	}
 }
-
 body {
 	color: #334155;
 }
@@ -23,4 +28,20 @@ input:active,
 button,
 input:focus {
 	outline: none;
+}
+.utterances {
+	margin: 0 auto !important;
+	padding: 20px !important;
+	max-width: 900px !important;
+}
+
+thead {
+	background: #eeeeee;
+}
+th,
+td {
+	text-align: center;
+}
+td {
+	font-size: 14px;
 }

@@ -23,6 +23,7 @@ const PostList: FC<PostListProps> = ({
 					filteryBycategory[1] === postList.length
 						? "hidden"
 						: " inset-x-0 bottom-0 flex justify-center absolute  bg-gradient-to-t from-white pt-32 pb-8 pointer-events-none"
+
 				}`}
 			>
 				<Loading />

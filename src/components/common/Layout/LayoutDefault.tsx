@@ -1,3 +1,4 @@
+import { useAppSelector } from "@src/hooks/reduxHooks";
 import { ILayoutProps } from "@src/interface/Ilayout";
 import React, { FC, SetStateAction } from "react";
 import { Helmet } from "react-helmet";
@@ -11,7 +12,9 @@ const LayoutDefault: FC<ILayoutProps> = ({
 	children,
 	handleSearchKeyword,
 	setKeyword,
+
 }) => {
+	console.log(title, description, url);
 	return (
 		<>
 			<Helmet>
@@ -35,6 +38,11 @@ const LayoutDefault: FC<ILayoutProps> = ({
 				<meta name="twitter:site" content="@사용자이름" />
 				<meta name="twitter:creator" content="@사용자이름" />
 
+				<meta
+					name="google-site-verification"
+					content="pXgOBsrwEtHvsUxUs33C6aao8Pl9Ab8yAlJ5x0jc0gA"
+				/>
+
 				<html lang="ko" />
 			</Helmet>
 
@@ -42,8 +50,10 @@ const LayoutDefault: FC<ILayoutProps> = ({
 				setKeyword={setKeyword}
 				handleSearchKeyword={handleSearchKeyword}
 			/>
+
+
 			<div
-				className={`w-full h-[calc(100%-60px)]   ${
+				className={`w-full h-[calc(100%-60px)] dark:bg-slate-800 dark:text-slate-200 ${
 					!fullWidth && " py-10 lg:pt-24 default-layout"
 				}`}
 			>

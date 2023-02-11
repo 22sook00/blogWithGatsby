@@ -3,23 +3,27 @@ module.exports = {
     title: `프론트엔드 벨라의 개발블로그`,
     description: `주니어 프론트엔드, 벨라의 고군분투 개발 블로그 입니다.`,
     author: `sookyoung lee`,
-    siteUrl: 'https://22sook00/sookDev' // 배포 후 변경 예정
+    siteUrl: 'https://sook-dev.vercel.app' // 배포 후 변경 예정
   },
 
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-postcss',
-    'gatsby-plugin-sitemap',
+    //'gatsby-plugin-sitemap',
+    'gatsby-plugin-advanced-sitemap',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        host: 'https://sook-dev.vercel.app',
+        sitemap: 'https://sook-dev.vercel.app/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://22sook00/sookDev',
+        siteUrl: 'https://sook-dev.vercel.app',
         stripQueryString: true,
       },
     },
@@ -30,7 +34,6 @@ module.exports = {
         allExtensions: true,
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

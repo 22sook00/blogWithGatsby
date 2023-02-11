@@ -9,7 +9,7 @@ const PostItem = (node) => {
 			<div
 				className="bg-white hover:bg-slate-400/10 dark:highlight-white/5 cursor-pointer
 			lg:flex gap-4 border rounded-lg shadow-sm lg:p-6 my-4 transition
-			hover:backdrop-opacity-10  "
+			hover:backdrop-opacity-10  dark:bg-slate-800 dark:text-slate-200"
 			>
 				<GatsbyImage
 					image={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
@@ -38,14 +38,19 @@ const PostItem = (node) => {
 									<li
 										key={idx}
 										className={`border ${
-											category === "Daily"
+											category === "daily"
 												? "border-yellow-400"
-												: category === "React" ||
-												  category === "Typescript" ||
-												  category === "Next.js"
+												: category === "react" ||
+												  category === "typescript" ||
+												  category === "javascript" ||
+												  category === "next.js"
 												? "border-sky-400"
-												: category === "Web" || category === "App"
+												: category === "web" || category === "app"
 												? "border-green-600"
+												: category === "algorithm"
+												? "border-slate-600"
+												: category === "git"
+												? "border-purple-400"
 												: "border-pink-400"
 										}   w-fit  px-2 py-1 rounded-lg text-[10px]`}
 									>
@@ -72,7 +77,7 @@ const PostItem = (node) => {
 				<GatsbyImage
 					image={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
 					alt="Gatsby Image"
-					className="hidden lg:block w-[20%] h-[160px] object-cover rounded-md"
+					className="hidden lg:block w-[20%] h-[160px]  rounded-md"
 				/>
 			</div>
 		</Link>
