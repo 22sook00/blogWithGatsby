@@ -50,11 +50,13 @@ const IndexPage: FC<TemplateProps> = ({
 
 					list["All"]++;
 					return list;
+					console.log('categories',categories)
 				},
 				{ All: 0 },
 			),
 		[],
 	);
+
 
 	const filteryBycategory = Object.entries(categoryList).filter(
 		(el) => el[0] === selectedCategory,

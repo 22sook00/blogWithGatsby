@@ -12,6 +12,7 @@ const PostList: FC<PostListProps> = ({
 	postList,
 	containerRef,
 }) => {
+	//console.log('filteryBycategory?',filteryBycategory)
 	return (
 		<div ref={containerRef} className="lg:relative lg:col-span-3  ">
 			{postList.map(({ node }: any, idx: number) => (
@@ -21,7 +22,8 @@ const PostList: FC<PostListProps> = ({
 				className={`${
 					filteryBycategory[1] === postList.length
 						? "hidden"
-						: " inset-x-0 bottom-0 flex justify-center absolute  bg-gradient-to-t from-white pt-32 pb-8 pointer-events-none dark:bg-gradient-to-t dark:from-slate-800 "
+						: " inset-x-0 bottom-0 flex justify-center absolute  bg-gradient-to-t from-white pt-32 pb-8 pointer-events-none"
+
 				}`}
 			>
 				<Loading />

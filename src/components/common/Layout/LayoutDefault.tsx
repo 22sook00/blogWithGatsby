@@ -10,6 +10,9 @@ const LayoutDefault: FC<ILayoutProps> = ({
 	url,
 	fullWidth,
 	children,
+	handleSearchKeyword,
+	setKeyword,
+
 }) => {
 	console.log(title, description, url);
 	return (
@@ -43,7 +46,12 @@ const LayoutDefault: FC<ILayoutProps> = ({
 				<html lang="ko" />
 			</Helmet>
 
-			<Header />
+			<Header
+				setKeyword={setKeyword}
+				handleSearchKeyword={handleSearchKeyword}
+			/>
+
+
 			<div
 				className={`w-full h-[calc(100%-60px)] dark:bg-slate-800 dark:text-slate-200 ${
 					!fullWidth && " py-10 lg:pt-24 default-layout"
