@@ -3,7 +3,7 @@ import React from "react";
 import "@src/components/main/PostItem/postItem.css";
 import { Link } from "gatsby";
 
-const PostItem = (node) => {
+const PostItem = (node: any) => {
 	return (
 		<Link to={node.fields?.slug} key={node.idx}>
 			<div

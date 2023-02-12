@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 
-import Typical from "react-typical";
 const Introduction = () => {
 	return (
 		<header className="flex flex-col lg:flex-row gap-8 justify-center w-full items-center lg:justify-start">

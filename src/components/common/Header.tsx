@@ -6,7 +6,7 @@ import Search from "./Search";
 import { changeMode } from "@src/redux/slice/darkmodeSlice";
 const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 	const [tooltip, setTooltip] = useState<boolean>(false);
-	const [isNight, setIsNight] = useState(true);
+	const [isNight, setIsNight] = useState<boolean>(true);
 
 	//const { darkMode } = useSelector((state: any) => state.darkMode);
 	//const theme = darkMode ? "dark" : "light";
