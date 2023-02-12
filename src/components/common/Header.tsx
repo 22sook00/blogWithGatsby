@@ -3,7 +3,6 @@ import React, { FC, useEffect, useState } from "react";
 import { ISearchKeywords } from "@src/interface/Ilayout";
 import Tooltip from "./Tooltip/Tooltip";
 import Search from "./Search";
-import { useDispatch, useSelector } from "react-redux";
 import { changeMode } from "@src/redux/slice/darkmodeSlice";
 const Header: FC<ISearchKeywords> = ({ handleSearchKeyword, setKeyword }) => {
 	const [tooltip, setTooltip] = useState<boolean>(false);
