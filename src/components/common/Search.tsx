@@ -6,8 +6,8 @@ import { useAppSelector } from "@src/hooks/reduxHooks";
 
 const Search = () => {
 	const searchArr = useAppSelector((state) => state.posts);
-	const [selected, setSelected] = useState();
-	const [query, setQuery] = useState("");
+	const [selected, setSelected] = useState<string>("");
+	const [query, setQuery] = useState<string>("");
 
 	const filteredSearch =
 		query === ""
