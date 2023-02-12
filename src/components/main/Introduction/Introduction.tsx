@@ -22,7 +22,6 @@ const Introduction = () => {
 				</div>
 			</div>
 			<div>
-				{/*<h1 className="text-3xl lg:text-[44px] mb-4">Hello,</h1>*/}
 				<h1 className="text-3xl lg:text-[44px] mb-4">
 					{/*<Typical
 						steps={["He", 1000, "Hello,", 500]}
